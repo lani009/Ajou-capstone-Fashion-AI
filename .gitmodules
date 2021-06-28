@@ -1,0 +1,3 @@
+[submodule "mmfashion"]
+	path = mmfashion
+	url = https://github.com/lani009/mmfashion.git
