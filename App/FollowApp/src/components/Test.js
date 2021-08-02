@@ -1,11 +1,14 @@
 import {View} from 'react-native';
-import styled from 'styled-components';
+import styled, {ThemeProvider} from 'styled-components';
+import theme from '../theme';
 
 const Test = () => {
     return (
-        <View>
-            <TitleText>Hi</TitleText>
-        </View>
+        <ThemeProvider theme="theme">
+            <View>
+                <TitleText>Hi</TitleText>
+            </View>
+        </ThemeProvider>
     );
 };
 
