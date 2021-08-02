@@ -11,6 +11,7 @@ const colors = {
     background: colors.white,
     text: colors.black,
     errorText: colors.red,
+    testColor: colors.black,
   
     // Image Component
     imageBackground: colors.grey_0,
