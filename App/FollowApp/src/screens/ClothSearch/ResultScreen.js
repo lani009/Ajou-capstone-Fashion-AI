@@ -1,7 +1,5 @@
 const ClothSearchResultScreen = () => {
-    return (
-        null
-    );
+    return null;
 };
 
 export default ClothSearchResultScreen;

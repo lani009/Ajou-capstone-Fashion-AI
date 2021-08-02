@@ -1,7 +1,5 @@
 const SettingScreen = () => {
-    return (
-        null
-    );
+    return null;
 };
 
 export default SettingScreen;

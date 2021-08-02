@@ -1,7 +1,5 @@
 const MyClosetScreen = () => {
-    return (
-        null
-    );
+    return null;
 };
 
 export default MyClosetScreen;

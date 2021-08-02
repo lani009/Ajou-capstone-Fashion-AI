@@ -1,26 +1,20 @@
+import React from 'react';
 import {View} from 'react-native';
-import styled, {ThemeProvider} from 'styled-components';
-import theme from '../theme';
+import styled from 'styled-components';
+
+const Title = styled.Text`
+    font-size: 20px;
+    font-weight: 600;
+    color: ${props => props.theme.text};
+`;
 
 const Test = () => {
     return (
-        <ThemeProvider theme="theme">
-            <View>
-                <TitleText>Hi</TitleText>
-            </View>
-        </ThemeProvider>
+        <View>
+            <Title>Hi</Title>
+            <Title>Hi</Title>
+        </View>
     );
 };
-
-const TitleText = styled.text`
-    width: 200px;
-    height: 60px;
-    margin: 5px;
-    padding: 10px;
-    border-radius: 10px;
-    border: 2px;
-    border-color: #3498db;
-    font-size: 24px;
-`;
 
 export default Test;
