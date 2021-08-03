@@ -1,4 +1,4 @@
-import LongButton from './LongButton'
-import ShortButton from './ShortButton'
+import LongButton from './LongButton';
+import ShortButton from './ShortButton';
 
-export default {ShortButton , LongButton};
+export default {ShortButton, LongButton};
