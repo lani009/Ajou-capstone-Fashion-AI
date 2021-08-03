@@ -1,5 +1,8 @@
+import React from 'react';
+import {Text} from 'react-native';
+
 const FindImageScreen = () => {
-    return null;
+    return <Text>This is Find Image Screen😀</Text>;
 };
 
 export default FindImageScreen;
