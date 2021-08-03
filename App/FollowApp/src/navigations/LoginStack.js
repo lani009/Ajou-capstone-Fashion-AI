@@ -1,23 +1,8 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import styled from 'styled-components/native';
-import {Text} from 'react-native';
+import LoginScreen from '../screens/LoginScreen';
 
 const Stack = createStackNavigator();
-
-const Container = styled.View`
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-`;
-
-const LoginScreen = () => {
-    return (
-        <Container>
-            <Text>Hi This is Login Page</Text>
-        </Container>
-    );
-};
 
 const LoginStack = () => {
     return (
