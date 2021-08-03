@@ -7,19 +7,20 @@
  */
 
 import React from 'react';
-import {SafeAreaView, StatusBar} from 'react-native';
+import {StatusBar} from 'react-native';
 import {ThemeProvider} from 'styled-components';
 import {theme} from './src/theme';
 import Navigation from './src/navigations/navigation';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
     return (
-        <SafeAreaView>
+        <SafeAreaProvider>
             <ThemeProvider theme={theme}>
                 <StatusBar />
                 <Navigation />
             </ThemeProvider>
-        </SafeAreaView>
+        </SafeAreaProvider>
     );
 };
 
