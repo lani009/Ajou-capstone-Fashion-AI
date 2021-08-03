@@ -1,7 +1,5 @@
 const MyLookScreen = () => {
-    return (
-        null
-    );
+    return null;
 };
 
 export default MyLookScreen;

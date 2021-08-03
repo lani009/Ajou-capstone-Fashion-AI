@@ -1,7 +1,5 @@
 const FindImageScreen = () => {
-    return (
-        null
-    );
+    return null;
 };
 
 export default FindImageScreen;

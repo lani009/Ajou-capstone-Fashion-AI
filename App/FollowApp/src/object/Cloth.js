@@ -7,23 +7,23 @@ export default class Cloth {
         this.imgPath = imgPath;
     }
 
-    getName() {
+    get name() {
         return this.name;
     }
 
-    getType() {
+    get type() {
         return this.type;
     }
 
-    getColor() {
+    get color() {
         return this.color;
     }
 
-    getMaker() {
+    get maker() {
         return this.maker;
     }
 
-    getImgPath() {
+    get imgPath() {
         return this.imgPath;
     }
 }

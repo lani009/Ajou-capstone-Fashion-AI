@@ -1,7 +1,5 @@
 const MyAvatarScreen = () => {
-    return (
-        null
-    );
+    return null;
 };
 
 export default MyAvatarScreen;

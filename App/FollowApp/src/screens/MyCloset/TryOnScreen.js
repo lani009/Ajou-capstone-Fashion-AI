@@ -1,7 +1,5 @@
 const TryOnScreen = () => {
-    return (
-        null
-    );
+    return null;
 };
 
 export default TryOnScreen;

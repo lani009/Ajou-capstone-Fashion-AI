@@ -1,7 +1,5 @@
 const HomeScreen = () => {
-    return (
-        null
-    );
-}
+    return null;
+};
 
 export default HomeScreen;
