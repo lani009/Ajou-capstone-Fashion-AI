@@ -2,15 +2,12 @@ import React, {useState, createContext} from 'react';
 
 const MyClosetContext = createContext({
     myClothList: [],
+    dispatch: undefined,
 });
 
 const MyClosetProvider = ({children}) => {
-    const [inProgress, setInProgress] = useState(false);
-    const spinner = {
-        start: () => setInProgress(true),
-        stop: () => setInProgress(false),
-    };
-    const value = {inProgress, spinner};
+    const [clothList, setClothList] = useState([]);
+    const value = {myClothList: clothList, dispatch: setClothList};
     return (
         <MyClosetContext.Provider value={value}>
             {children}

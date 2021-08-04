@@ -10,14 +10,18 @@ const UserContext = createContext({
          * 유저 이름
          */
         userName: '',
+        /**
+         * 유저 비밀번호
+         */
+        password: '',
     },
     dispatch: undefined,
 });
 
 const UserContextProvider = ({children}) => {
     const [user, setUser] = useState({});
-    const dispatch = ({isLoggedIn, userName}) => {
-        setUser({isLoggedIn, userName});
+    const dispatch = (isLoggedIn, userName, password) => {
+        setUser({isLoggedIn, userName, password});
     };
     const value = {user, dispatch};
     return (
