@@ -8,6 +8,10 @@ import {
     TouchableWithoutFeedback,
     Dimensions,
     PanResponder,
+    TouchableOpacity,
+    ScrollView,
+    Image,
+    FlatList,
 } from 'react-native';
 
 const BottomSheet = props => {
@@ -76,7 +80,29 @@ const BottomSheet = props => {
                         transform: [{translateY: translateY}],
                     }}
                     {...panResponders.panHandlers}>
-                    <Text>This is myclothes</Text>
+                    <View>
+                        <FlatList
+                            data={ClothesList}
+                            renderItem={({item}) => (
+                                <View>
+                                    <TouchableOpacity
+                                        style={{flex: 1, margin: 15}}>
+                                        <Image
+                                            source={item.src}
+                                            // eslint-disable-next-line react-native/no-inline-styles
+                                            style={{
+                                                width: 100,
+                                                height: 100,
+                                            }} />
+                                    </TouchableOpacity>
+                                </View>
+                            )}
+                            keyExtractor={(item, index) => index}
+                            // eslint-disable-next-line react-native/no-inline-styles
+                            numColumns={3}
+                            horizontal={false}
+                        />
+                    </View>
                 </Animated.View>
             </View>
         </Modal>
@@ -93,7 +119,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     bottomSheetContainer: {
-        height: 300,
+        height: 350,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
@@ -101,5 +127,48 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 10,
     },
 });
+
+const ClothesList = [
+    {
+        id: '1',
+        src: require('../../../asset/test/TryOn/Clothes/1.png'),
+    },
+    {
+        id: '2',
+        src: require('../../../asset/test/TryOn/Clothes/2.png'),
+    },
+    {
+        id: '3',
+        src: require('../../../asset/test/TryOn/Clothes/3.png'),
+    },
+    {
+        id: '4',
+        src: require('../../../asset/test/TryOn/Clothes/4.png'),
+    },
+    {
+        id: '5',
+        src: require('../../../asset/test/TryOn/Clothes/5.png'),
+    },
+    {
+        id: '6',
+        src: require('../../../asset/test/TryOn/Clothes/6.png'),
+    },
+    {
+        id: '7',
+        src: require('../../../asset/test/TryOn/Clothes/7.png'),
+    },
+    {
+        id: '8',
+        src: require('../../../asset/test/TryOn/Clothes/8.png'),
+    },
+    {
+        id: '9',
+        src: require('../../../asset/test/TryOn/Clothes/9.png'),
+    },
+    {
+        id: '10',
+        src: require('../../../asset/test/TryOn/Clothes/10.png'),
+    },
+];
 
 export default BottomSheet;

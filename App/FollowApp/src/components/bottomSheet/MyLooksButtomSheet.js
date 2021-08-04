@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     bottomSheetContainer: {
-        height: 300,
+        height: 350,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
