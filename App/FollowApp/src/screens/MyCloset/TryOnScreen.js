@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Dimensions} from 'react-native';
+import {Image, Text} from 'react-native';
 import styled from 'styled-components/native';
 import Buttons from '../../components/buttons/Button';
 import MyClothesBottomSheet from '../../components/bottomSheet/MyClothesButtomSheet';
@@ -29,9 +29,24 @@ const TryOnScreen = ({props}) => {
     const pressMyLooksButton = () => {
         setModalTwoVisible(true);
     };
+    const [imgData, setImgData] = useState('');
+    const getData = data => {
+        setImgData(data);
+    };
+
     return (
         <Container>
-            <AvatarView></AvatarView>
+            <AvatarView>
+                <Image
+                    source={imgData.src}
+                    // eslint-disable-next-line react-native/no-inline-styles
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        borderRadius: 20,
+                    }}
+                />
+            </AvatarView>
             <Buttons.LongButton
                 title="My Clothes"
                 onPress={pressMyClothesButton}
@@ -39,11 +54,13 @@ const TryOnScreen = ({props}) => {
             <MyClothesBottomSheet
                 modalVisible={modalOneVisible}
                 setModalVisible={setModalOneVisible}
+                getData={getData}
             />
             <Buttons.LongButton title="My Looks" onPress={pressMyLooksButton} />
             <MyLooksBottomSheet
                 modalVisible={modalTwoVisible}
                 setModalVisible={setModalTwoVisible}
+                getData={getData}
             />
         </Container>
     );
