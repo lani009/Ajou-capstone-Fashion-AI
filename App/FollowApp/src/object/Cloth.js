@@ -6,24 +6,4 @@ export default class Cloth {
         this.maker = maker;
         this.imgPath = imgPath;
     }
-
-    get name() {
-        return this.name;
-    }
-
-    get type() {
-        return this.type;
-    }
-
-    get color() {
-        return this.color;
-    }
-
-    get maker() {
-        return this.maker;
-    }
-
-    get imgPath() {
-        return this.imgPath;
-    }
 }

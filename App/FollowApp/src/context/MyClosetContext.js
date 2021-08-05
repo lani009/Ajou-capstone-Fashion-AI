@@ -1,4 +1,5 @@
 import React, {useState, createContext} from 'react';
+import {MyClothData} from '../data/MyClothData';
 
 
 const MyClosetContext = createContext({
@@ -49,6 +50,7 @@ const MyClosetContext = createContext({
 
 const MyClosetProvider = ({children}) => {
     const [clothList, setClothList] = useState([]);
+    setClothList(MyClothData);
     const value = {myClothList: clothList, dispatch: setClothList};
     return (
         <MyClosetContext.Provider value={value}>
