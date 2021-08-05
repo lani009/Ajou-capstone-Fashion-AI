@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Image, Text} from 'react-native';
+import {Image} from 'react-native';
 import styled from 'styled-components/native';
 import Buttons from '../../components/buttons/Button';
 import MyClothesBottomSheet from '../../components/bottomSheet/MyClothesButtomSheet';
