@@ -1,5 +1,6 @@
 export default class Cloth {
-    constructor(name, type, color, maker, imgPath) {
+    constructor(id, name, type, color, maker, imgPath) {
+        this.id = id;
         this.name = name;
         this.type = type;
         this.color = color;
