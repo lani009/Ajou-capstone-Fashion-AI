@@ -8,7 +8,7 @@ const Container = styled.View`
     flex: 1;
 `;
 
-const LookBox = ({item, onPress}) => {
+const LookBox = ({item, navigation}) => {
     const LookContainer = styled.TouchableOpacity`
         margin: 10px auto;
         height: 120px;
@@ -38,9 +38,16 @@ const LookBox = ({item, onPress}) => {
         height: 100px;
         width: 100px;
     `;
+    console.log(item.top.name);
 
     return (
-        <LookContainer onPress={onPress}>
+        <LookContainer
+            onPress={() => {
+                navigation.navigate('MyLookDetail', {
+                    top: item.top,
+                    bottom: item.bottom,
+                });
+            }}>
             <ImageContainer>
                 <ClothImage source={item.img} resizeMode="contain" />
             </ImageContainer>
@@ -56,14 +63,7 @@ const MyLook = ({navigation}) => {
     const lookListContext = useContext(MyLookContext);
 
     const renderItem = ({item}) => {
-        return (
-            <LookBox
-                item={item}
-                onPress={() => {
-                    navigation.navigate('MyLookDetail');
-                }}
-            />
-        );
+        return <LookBox item={item} navigation={navigation} />;
     };
     return (
         <Container>

@@ -1,8 +1,14 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {Text, View} from 'react-native';
 
-const LookDetail = () => {
-    return <Text>This is Look Detail</Text>;
+const LookDetail = ({route}) => {
+    const {top, bottom} = route.params;
+    return (
+        <View>
+            <Text>{top.name}</Text>
+            <Text>{bottom.name}</Text>
+        </View>
+    );
 };
 
 export default LookDetail;
