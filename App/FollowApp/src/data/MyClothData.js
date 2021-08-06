@@ -1,10 +1,38 @@
 import Cloth from '../object/Cloth';
 
 export const MyClothData = [
-    new Cloth('id', 'name1', 'type', 'color', 'maker', 'imgPath'),
-    new Cloth('id', 'name2', 'type', 'color', 'maker', 'imgPath'),
-    new Cloth('id', 'name3', 'type', 'color', 'maker', 'imgPath'),
-    new Cloth('id', 'name4', 'type', 'color', 'maker', 'imgPath'),
+    new Cloth(
+        '1',
+        'blackShirt',
+        'T-Shirt',
+        'black',
+        'gucci',
+        require('../../asset/test/TryOn/Clothes/1.png'),
+    ),
+    new Cloth(
+        '2',
+        'blackShirt',
+        'T-Shirt',
+        'black',
+        'gucci',
+        require('../../asset/test/TryOn/Clothes/2.png'),
+    ),
+    new Cloth(
+        '3',
+        'blackShirt',
+        'T-Shirt',
+        'black',
+        'gucci',
+        require('../../asset/test/TryOn/Clothes/3.png'),
+    ),
+    new Cloth(
+        '4',
+        'blackShirt',
+        'T-Shirt',
+        'black',
+        'gucci',
+        require('../../asset/test/TryOn/Clothes/4.png'),
+    ),
 ];
 
 // {
