@@ -11,6 +11,12 @@ const MyClosetScreen = ({navigation}) => {
                     navigation.navigate('MyLook');
                 }}
             />
+            <Button
+                title="Virtual Try On"
+                onPress={() => {
+                    navigation.navigate('TryOn');
+                }}
+            />
         </View>
     );
 };
