@@ -1,18 +1,10 @@
-import React, { Component } from 'react';
-import {
-    StyleSheet,
-    View,
-    Image,
-    Text,
-    TouchableOpacity,
-} from 'react-native';
+import React from 'react';
+import {StyleSheet, View, Image, Text, TouchableOpacity} from 'react-native';
 
-const MyClosetScreen = () => {
+function MyClosetScreen({navigation}) {
     return (
         <View>
-            <View
-                style={{width: 400, height: 150, backgroundColor: 'black'}}
-            />
+            <View style={{width: 400, height: 150, backgroundColor: 'black'}} />
 
             <Image
                 source={require('./Image/12.png')}
@@ -41,7 +33,8 @@ const MyClosetScreen = () => {
                 jkworldchampion@gamil.com
             </Text>
             <View style={{flexDirection: 'row'}}>
-                <TouchableOpacity style={styles.BoxSutton}>
+                <TouchableOpacity style={styles.BoxSutton}
+                    onPress={() => navigation.navigate('MyClothes')}>
                     <Text
                         style={{
                             fontSize: 16.5,
@@ -51,7 +44,8 @@ const MyClosetScreen = () => {
                         MyCloth
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.BoxSutton}>
+                <TouchableOpacity style={styles.BoxSutton}
+                    onPress={() => navigation.navigate('MyLook')}>
                     <Text
                         style={{
                             fontSize: 16.5,
@@ -63,7 +57,9 @@ const MyClosetScreen = () => {
                 </TouchableOpacity>
             </View>
             <View style={{flexDirection: 'row'}}>
-                <TouchableOpacity style={styles.BoxSutton}>
+                <TouchableOpacity
+                    style={styles.BoxSutton}
+                    onPress={() => navigation.navigate('MyAvatar')}>
                     <Text
                         style={{
                             fontSize: 16.5,
@@ -73,7 +69,8 @@ const MyClosetScreen = () => {
                         MyAvatar
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.BoxSutton}>
+                <TouchableOpacity style={styles.BoxSutton}
+                onPress={() => navigation.navigate('TryOn')}>
                     <Text
                         style={{
                             fontSize: 16.5,
@@ -86,7 +83,7 @@ const MyClosetScreen = () => {
             </View>
         </View>
     );
-};
+}
 
 const styles = StyleSheet.create({
     container: {
