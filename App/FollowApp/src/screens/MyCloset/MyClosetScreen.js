@@ -1,46 +1,110 @@
-import React from 'react';
-import {StyleSheet, View, Image, Text, Button} from 'react-native';
-import MyCloth from './MyCloth';
-import MyLookScreen from './MyLookScreen';
-import MyAvatarScreen from './MyAvatar';
-import TryOnScreen from './TryOnScreen';
-import Navigation from '../../navigations/navigation';
-
+import React, { Component } from 'react';
+import {
+    StyleSheet,
+    View,
+    Image,
+    Text,
+    TouchableOpacity,
+} from 'react-native';
 
 const MyClosetScreen = () => {
     return (
         <View>
             <View
-                style={{width: 400, height: 150, backgroundColor: 'skyblue'}}
+                style={{width: 400, height: 150, backgroundColor: 'black'}}
             />
+
             <Image
                 source={require('./Image/12.png')}
-                style= {styles.container}
+                style={styles.container}
             />
+
             <Text
-                style= {{marginTop: 60, marginLeft:170, fontWeight: 'bold', fontSize: 20, color: 'steelblue'}}>
+                style={{
+                    marginTop: 60,
+                    marginLeft: 170,
+                    fontWeight: 'bold',
+                    fontSize: 20,
+                    color: 'black',
+                }}>
                 주돌이
             </Text>
+
             <Text
-                style= {{marginTop: 10, marginLeft:100, fontWeight: 'normal', fontSize: 15, color: 'steelblue'}}>
+                style={{
+                    marginTop: 10,
+                    marginLeft: 100,
+                    fontWeight: 'normal',
+                    fontSize: 15,
+                    color: 'black',
+                }}>
                 jkworldchampion@gamil.com
             </Text>
-
-            <Button
-                title="Press me"
-            />
+            <View style={{flexDirection: 'row'}}>
+                <TouchableOpacity style={styles.BoxSutton}>
+                    <Text
+                        style={{
+                            fontSize: 16.5,
+                            textAlign: 'center',
+                            color: 'white',
+                        }}>
+                        MyCloth
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.BoxSutton}>
+                    <Text
+                        style={{
+                            fontSize: 16.5,
+                            textAlign: 'center',
+                            color: 'white',
+                        }}>
+                        MyLook
+                    </Text>
+                </TouchableOpacity>
+            </View>
+            <View style={{flexDirection: 'row'}}>
+                <TouchableOpacity style={styles.BoxSutton}>
+                    <Text
+                        style={{
+                            fontSize: 16.5,
+                            textAlign: 'center',
+                            color: 'white',
+                        }}>
+                        MyAvatar
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.BoxSutton}>
+                    <Text
+                        style={{
+                            fontSize: 16.5,
+                            textAlign: 'center',
+                            color: 'white',
+                        }}>
+                        TryOn
+                    </Text>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    container: { 
+    container: {
         width: 110,
         height: 110,
         position: 'absolute',
         marginTop: 100,
-        marginLeft: 140
-        
+        marginLeft: 140,
+    },
+    BoxSutton: {
+        justifyContent: 'flex-start',
+        backgroundColor: 'black',
+        padding: 40,
+        marginTop: 40,
+        borderRadius: 13,
+        marginLeft: 30,
+        width: 150,
+        height: 150,
     },
 });
 
