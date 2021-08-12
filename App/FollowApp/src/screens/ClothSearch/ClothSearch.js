@@ -1,4 +1,4 @@
-import FindImageScreen from "./FindImageScreen";
-import ClothSearchResultScreen from "./ResultScreen";
+import FindImageScreen from './FindImageScreen';
+import ClothSearchResultScreen from './ResultScreen';
 
-export default { FindImageScreen, ClothSearchResultScreen };
+export default {FindImageScreen, ClothSearchResultScreen};

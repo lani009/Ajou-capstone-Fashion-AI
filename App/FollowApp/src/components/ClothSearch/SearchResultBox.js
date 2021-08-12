@@ -1,7 +1,8 @@
-import View from "react-native-gesture-handler/lib/typescript/GestureHandlerRootView";
+import React from 'react';
+import {Image, Text, View} from 'react-native';
 import PropTypes from 'prop-types';
 
-const ResultBox = (clothObj) => {
+const ResultBox = clothObj => {
     return (
         <View>
             <Text>${clothObj.getName()}</Text>
@@ -9,9 +10,8 @@ const ResultBox = (clothObj) => {
             <Image source={clothObj.getImgPath()} />
         </View>
     );
-}
-
+};
 
 ResultBox.propTypes = {
     clothObj: PropTypes.object.isRequired,
-}
+};

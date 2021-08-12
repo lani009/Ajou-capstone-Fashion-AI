@@ -1,18 +1,22 @@
+import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from '../screens/HomeScreen';
 import SettingScreen from '../screens/SettingScreen';
-import MyClosetScreen from '../screens/MyCloset/MyClosetScreen';
 import ClothSearch from '../screens/ClothSearch/ClothSearch';
+import MyClosetStack from './MyClosetStack';
+import HomeStack from './HomeStack';
 
 const Tab = createBottomTabNavigator();
 
 const IndexTab = () => {
     return (
         <Tab.Navigator>
-            <Tab.Screen name="" component={HomeScreen} />
-            <Tab.Screen name="" component={MyClosetScreen} />
-            <Tab.Screen name="" component={ClothSearch.FindImageScreen} />
-            <Tab.Screen name="" component={SettingScreen} />
+            <Tab.Screen name="Home" component={HomeStack} />
+            <Tab.Screen name="MyCloset" component={MyClosetStack} />
+            <Tab.Screen
+                name="FindImage"
+                component={ClothSearch.FindImageScreen}
+            />
+            <Tab.Screen name="Setting" component={SettingScreen} />
         </Tab.Navigator>
     );
 };
