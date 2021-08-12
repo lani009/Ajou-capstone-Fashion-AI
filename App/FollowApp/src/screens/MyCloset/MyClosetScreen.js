@@ -32,51 +32,40 @@ function MyClosetScreen({navigation}) {
                 }}>
                 jkworldchampion@gamil.com
             </Text>
-            <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
-                <TouchableOpacity style={styles.BoxSutton}
+            <View
+                style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
+                <TouchableOpacity
+                    style={styles.BoxButton}
                     onPress={() => navigation.navigate('MyClothes')}>
                     <Text
-                        style={{
-                            fontSize: 16.5,
-                            textAlign: 'center',
-                            color: 'white',
-                        }}>
+                        style={styles.Boxtext}>
                         MyCloth
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.BoxSutton}
+                <TouchableOpacity
+                    style={styles.BoxButton}
                     onPress={() => navigation.navigate('MyLook')}>
                     <Text
-                        style={{
-                            fontSize: 16.5,
-                            textAlign: 'center',
-                            color: 'white',
-                        }}>
+                        style={styles.Boxtext}>
                         MyLook
                     </Text>
                 </TouchableOpacity>
             </View>
-            <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
+            <View
+                style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
                 <TouchableOpacity
-                    style={styles.BoxSutton}
+                    style={styles.BoxButton}
                     onPress={() => navigation.navigate('MyAvatar')}>
                     <Text
-                        style={{
-                            fontSize: 16.5,
-                            textAlign: 'center',
-                            color: 'white',
-                        }}>
+                        style={styles.Boxtext}>
                         MyAvatar
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.BoxSutton}
-                onPress={() => navigation.navigate('TryOn')}>
+                <TouchableOpacity
+                    style={styles.BoxButton}
+                    onPress={() => navigation.navigate('TryOn')}>
                     <Text
-                        style={{
-                            fontSize: 16.5,
-                            textAlign: 'center',
-                            color: 'white',
-                        }}>
+                        style={styles.Boxtext}>
                         TryOn
                     </Text>
                 </TouchableOpacity>
@@ -93,19 +82,25 @@ const styles = StyleSheet.create({
         marginTop: 100,
         marginLeft: 140,
     },
-    BoxSutton: {
+    BoxButton: {
         justifyContent: 'flex-start',
         backgroundColor: 'black',
-        padding: 40,
+        padding: 0,
         marginTop: 40,
         borderRadius: 13,
-        width: 150,
+        width: 170,
         height: 150,
     },
     upbox: {
         width: '100%',
         height: 150,
         backgroundColor: 'black',
+    },
+    Boxtext: {
+        fontSize: 16.5,
+        textAlign: 'center',
+        marginTop: 60,
+        color: 'white',
     }
 });
 
