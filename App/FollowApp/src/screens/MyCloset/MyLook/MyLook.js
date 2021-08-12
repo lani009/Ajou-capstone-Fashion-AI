@@ -13,7 +13,7 @@ const LookBox = ({item, navigation}) => {
         margin: 10px auto;
         height: 120px;
         width: 90%;
-        background-color: aliceblue;
+        background-color: ${({theme}) => theme.LookBox.background};
         border-radius: 5px;
         flex-direction: row;
         align-items: center;

@@ -24,6 +24,9 @@ const StyledTextInput = styled.TextInput.attrs(({theme}) => ({
     border-radius: 4px;
 `;
 
+/**
+ * Id password 입력용 칸
+ */
 const InputArea = forwardRef(
     (
         {label, onChangeText, placeholder, isPassword, returnKeyType, disabled},
