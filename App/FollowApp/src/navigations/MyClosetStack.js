@@ -20,6 +20,10 @@ const MyClosetStack = () => {
                 component={MyCloth.default.MyAvatarScreen}
             />
             <Stack.Screen
+                name="MyAvatarPick"
+                component={MyCloth.default.MyAvatarPick}
+            />
+            <Stack.Screen
                 name="MyLook"
                 component={MyCloth.default.MyLookScreen}
             />
