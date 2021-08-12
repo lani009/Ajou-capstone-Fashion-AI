@@ -4,7 +4,6 @@ import {MyClosetContext} from '../../context/MyClosetContext';
 
 const ImgLoader = props => {
     const clothesList = useContext(MyClosetContext);
-    console.log(clothesList.myClothList);
 
     // const init = item => {
     //     setClothData(item);

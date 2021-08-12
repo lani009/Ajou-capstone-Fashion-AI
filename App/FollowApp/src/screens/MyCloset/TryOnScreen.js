@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
-import {Image} from 'react-native';
+import {Image, Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 import Buttons from '../../components/buttons/Button';
 import MyClothesBottomSheet from '../../components/bottomSheet/MyClothesButtomSheet';
 import MyLooksBottomSheet from '../../components/bottomSheet/MyLooksButtomSheet';
+import Cloth from '../../object/Cloth';
 
+const WindowHeight = Dimensions.get('window').height / 9;
 const Container = styled.SafeAreaView`
     flex: 1;
     align-items: center;
@@ -16,22 +18,34 @@ const AvatarView = styled.View`
     width: 90%;
     height: 50%;
     border: 1px;
-    margin-bottom: 20%;
+    margin-bottom: ${WindowHeight}px;
     margin-top: 10%;
+`;
+const ButtonContainer = styled.View`
+    flex-direction: row;
 `;
 
 const TryOnScreen = ({props}) => {
-    const [modalOneVisible, setModalOneVisible] = useState(false);
-    const [modalTwoVisible, setModalTwoVisible] = useState(false);
-    const pressMyClothesButton = () => {
-        setModalOneVisible(true);
+    const [modalTopVisible, setModalTopVisible] = useState(false);
+    const [modalBottomVisible, setModalBottomVisible] = useState(false);
+    const [modalLookVisible, setModalLookVisible] = useState(false);
+    const [imgData, setImgData] = useState([]);
+
+    const pressMyTopButton = () => {
+        setModalTopVisible(true);
+    };
+    const pressMyButtomButton = () => {
+        setModalBottomVisible(true);
     };
     const pressMyLooksButton = () => {
-        setModalTwoVisible(true);
+        setModalLookVisible(true);
     };
-    const [imgData, setImgData] = useState('');
     const getData = data => {
         setImgData(data);
+    };
+    const reset = () => {
+        setImgData(new Cloth());
+        console.log(imgData);
     };
 
     return (
@@ -47,20 +61,31 @@ const TryOnScreen = ({props}) => {
                     }}
                 />
             </AvatarView>
-            <Buttons.LongButton
-                title="My Clothes"
-                onPress={pressMyClothesButton}
-            />
+            <ButtonContainer>
+                <Buttons.MiddleButton
+                    title="My Tops"
+                    onPress={pressMyTopButton}
+                />
+                <Buttons.MiddleButton
+                    title="My Bottoms"
+                    onPress={pressMyButtomButton}
+                />
+            </ButtonContainer>
             <MyClothesBottomSheet
-                modalVisible={modalOneVisible}
-                setModalVisible={setModalOneVisible}
+                modalVisible={modalTopVisible}
+                setModalVisible={setModalTopVisible}
                 getData={getData}
             />
-
-            <Buttons.LongButton title="My Looks" onPress={pressMyLooksButton} />
+            <ButtonContainer>
+                <Buttons.MiddleButton
+                    title="My Looks"
+                    onPress={pressMyLooksButton}
+                />
+                <Buttons.MiddleButton title="Refresh" onPress={reset} />
+            </ButtonContainer>
             <MyLooksBottomSheet
-                modalVisible={modalTwoVisible}
-                setModalVisible={setModalTwoVisible}
+                modalVisible={modalLookVisible}
+                setModalVisible={setModalLookVisible}
                 getData={getData}
             />
         </Container>

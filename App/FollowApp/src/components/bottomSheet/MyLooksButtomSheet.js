@@ -64,7 +64,6 @@ const BottomSheet = props => {
         });
     };
     const clothesList = useContext(MyClosetContext);
-    console.log({clothesList}.clothesList);
 
     return (
         <Modal
