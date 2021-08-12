@@ -19,7 +19,7 @@ const MyAvatarScreenPick = ({ navigation, props }) => {
                 {
                     url: '',
                     props: {
-                        source: './img/avatar/avatar' + (i + 1) + '.png',
+                        source: './image/avatar/avatar' + (i + 1) + '.png',
                     },
                     id: i,
                 }
