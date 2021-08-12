@@ -15,5 +15,16 @@ export const theme = {
 
     Button: {
         color: colors.white,
+        background: colors.blue,
+        title: colors.white,
+        unfilledTitle: colors.blue,
+        logout: colors.red,
+    },
+
+    Input: {
+        label: colors.grey_1,
+        placeholder: colors.grey_1,
+        border: colors.grey_1,
+        disabledBackground: colors.grey_0,
     },
 };
