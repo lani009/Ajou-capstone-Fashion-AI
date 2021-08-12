@@ -38,7 +38,7 @@ const TryOnScreen = ({props}) => {
         <Container>
             <AvatarView>
                 <Image
-                    source={imgData.src}
+                    source={imgData.imgPath}
                     // eslint-disable-next-line react-native/no-inline-styles
                     style={{
                         width: '100%',
@@ -56,6 +56,7 @@ const TryOnScreen = ({props}) => {
                 setModalVisible={setModalOneVisible}
                 getData={getData}
             />
+
             <Buttons.LongButton title="My Looks" onPress={pressMyLooksButton} />
             <MyLooksBottomSheet
                 modalVisible={modalTwoVisible}
