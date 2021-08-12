@@ -1,9 +1,9 @@
 export default class Look {
-    constructor(id, name, top, bottoms, imgPath) {
+    constructor(id, name, top, bottom, imgPath) {
         this.id = id;
         this.name = name;
         this.top = top;
-        this.bottoms = bottoms;
+        this.bottom = bottom;
         this.imgPath = imgPath;
     }
 }

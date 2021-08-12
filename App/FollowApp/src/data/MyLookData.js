@@ -1,32 +1,33 @@
 import {MyClothData} from './MyClothData';
+import Look from '../object/Look';
 
 export const MyLookData = [
-    {
-        id: '1',
-        name: 'Spring Look',
-        top: MyClothData[0],
-        bottom: MyClothData[0],
-        img: require('../../asset/img/MyLook/MyLookTest.png'),
-    },
-    {
-        id: '2',
-        name: 'Summer Look',
-        top: MyClothData[1],
-        bottom: MyClothData[0],
-        img: require('../../asset/img/MyLook/MyLookTest.png'),
-    },
-    {
-        id: '3',
-        name: 'Sportswear',
-        top: MyClothData[2],
-        bottom: MyClothData[0],
-        img: require('../../asset/img/MyLook/MyLookTest.png'),
-    },
-    {
-        id: '4',
-        name: 'Couple Look',
-        top: MyClothData[3],
-        bottom: MyClothData[0],
-        img: require('../../asset/img/MyLook/MyLookTest.png'),
-    },
+    new Look(
+        '1',
+        'Spring Look',
+        MyClothData[0],
+        MyClothData[0],
+        require('../../asset/img/MyLook/MyLookTest.png'),
+    ),
+    new Look(
+        '2',
+        'Summer Look',
+        MyClothData[1],
+        MyClothData[1],
+        require('../../asset/img/MyLook/MyLookTest.png'),
+    ),
+    new Look(
+        '3',
+        'Sportswear',
+        MyClothData[2],
+        MyClothData[2],
+        require('../../asset/img/MyLook/MyLookTest.png'),
+    ),
+    new Look(
+        '4',
+        'Couple Look',
+        MyClothData[3],
+        MyClothData[3],
+        require('../../asset/img/MyLook/MyLookTest.png'),
+    ),
 ];

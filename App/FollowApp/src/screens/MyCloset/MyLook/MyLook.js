@@ -38,7 +38,6 @@ const LookBox = ({item, navigation}) => {
         height: 100px;
         width: 100px;
     `;
-    console.log(item.top.name);
 
     return (
         <LookContainer
@@ -49,7 +48,7 @@ const LookBox = ({item, navigation}) => {
                 });
             }}>
             <ImageContainer>
-                <ClothImage source={item.img} resizeMode="contain" />
+                <ClothImage source={item.imgPath} resizeMode="contain" />
             </ImageContainer>
             <TitleContainer>
                 <TitleText>{item.name}</TitleText>
