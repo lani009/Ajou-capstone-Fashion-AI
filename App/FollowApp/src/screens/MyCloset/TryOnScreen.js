@@ -2,9 +2,13 @@ import React, {useState} from 'react';
 import {Image, Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 import Buttons from '../../components/buttons/Button';
-import MyClothesBottomSheet from '../../components/bottomSheet/MyClothesButtomSheet';
-import MyLooksBottomSheet from '../../components/bottomSheet/MyLooksButtomSheet';
-import Cloth from '../../object/Cloth';
+import MyTopBottomSheet from '../../components/tryonScreen/bottomSheet/MyTopButtomSheet';
+import MyLooksBottomSheet from '../../components/tryonScreen/bottomSheet/MyLooksButtomSheet';
+import MyBottomBottomSheet from '../../components/tryonScreen/bottomSheet/MyBottomButtomSheet';
+import {
+    MySelectionConsumer,
+    MySelectionProvider,
+} from '../../context/MySelectionContext';
 
 const WindowHeight = Dimensions.get('window').height / 9;
 const Container = styled.SafeAreaView`
@@ -24,12 +28,21 @@ const AvatarView = styled.View`
 const ButtonContainer = styled.View`
     flex-direction: row;
 `;
-
+const SelectedID = () => {
+    console.log('SelectedId');
+    return (
+        <MySelectionConsumer>
+            {({state}) => {
+                console.log(state.top);
+                console.log(state.bottom);
+            }}
+        </MySelectionConsumer>
+    );
+};
 const TryOnScreen = ({props}) => {
     const [modalTopVisible, setModalTopVisible] = useState(false);
     const [modalBottomVisible, setModalBottomVisible] = useState(false);
     const [modalLookVisible, setModalLookVisible] = useState(false);
-    const [imgData, setImgData] = useState([]);
 
     const pressMyTopButton = () => {
         setModalTopVisible(true);
@@ -40,55 +53,59 @@ const TryOnScreen = ({props}) => {
     const pressMyLooksButton = () => {
         setModalLookVisible(true);
     };
-    const getData = data => {
-        setImgData(data);
-    };
-    const reset = () => {
-        setImgData(new Cloth());
-        console.log(imgData);
-    };
-
     return (
-        <Container>
-            <AvatarView>
-                <Image
-                    source={imgData.imgPath}
-                    // eslint-disable-next-line react-native/no-inline-styles
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        borderRadius: 20,
-                    }}
+        <MySelectionProvider>
+            <Container>
+                <MySelectionConsumer>
+                    {({state}) => (
+                        <AvatarView>
+                            <Image source={state.top.imgPath} />
+                            <Image source={state.bottom.imgPath} />
+                            <SelectedID />
+                        </AvatarView>
+                    )}
+                </MySelectionConsumer>
+                <ButtonContainer>
+                    <Buttons.MiddleButton
+                        title="My Tops"
+                        onPress={pressMyTopButton}
+                    />
+                    <Buttons.MiddleButton
+                        title="My Bottoms"
+                        onPress={pressMyButtomButton}
+                    />
+                </ButtonContainer>
+                <MyTopBottomSheet
+                    modalVisible={modalTopVisible}
+                    setModalVisible={setModalTopVisible}
                 />
-            </AvatarView>
-            <ButtonContainer>
-                <Buttons.MiddleButton
-                    title="My Tops"
-                    onPress={pressMyTopButton}
+                <MyBottomBottomSheet
+                    modalVisible={modalBottomVisible}
+                    setModalVisible={setModalBottomVisible}
                 />
-                <Buttons.MiddleButton
-                    title="My Bottoms"
-                    onPress={pressMyButtomButton}
+                <ButtonContainer>
+                    <Buttons.MiddleButton
+                        title="My Looks"
+                        onPress={pressMyLooksButton}
+                    />
+                    <MySelectionConsumer>
+                        {({actions}) => (
+                            <Buttons.MiddleButton
+                                title="Refresh"
+                                onPress={() => {
+                                    actions.setTop(undefined);
+                                    actions.setBottom(undefined);
+                                }}
+                            />
+                        )}
+                    </MySelectionConsumer>
+                </ButtonContainer>
+                <MyLooksBottomSheet
+                    modalVisible={modalLookVisible}
+                    setModalVisible={setModalLookVisible}
                 />
-            </ButtonContainer>
-            <MyClothesBottomSheet
-                modalVisible={modalTopVisible}
-                setModalVisible={setModalTopVisible}
-                getData={getData}
-            />
-            <ButtonContainer>
-                <Buttons.MiddleButton
-                    title="My Looks"
-                    onPress={pressMyLooksButton}
-                />
-                <Buttons.MiddleButton title="Refresh" onPress={reset} />
-            </ButtonContainer>
-            <MyLooksBottomSheet
-                modalVisible={modalLookVisible}
-                setModalVisible={setModalLookVisible}
-                getData={getData}
-            />
-        </Container>
+            </Container>
+        </MySelectionProvider>
     );
 };
 

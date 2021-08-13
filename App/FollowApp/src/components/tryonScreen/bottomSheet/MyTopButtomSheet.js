@@ -1,19 +1,21 @@
-import React, {useEffect, useRef, useContext} from 'react';
+import React, {useEffect, useRef, useState, useContext} from 'react';
 import {
     View,
     StyleSheet,
     Modal,
-    Text,
     Animated,
     TouchableWithoutFeedback,
     Dimensions,
     PanResponder,
+    FlatList,
     TouchableOpacity,
     Image,
-    FlatList,
 } from 'react-native';
-import {MyClosetContext} from '../../context/MyClosetContext';
-
+import {
+    MyClosetContext,
+    MyClosetProvider,
+} from '../../../context/MyClosetContext';
+import ImgLoader from '../contextLoader/MyTopContextLoader';
 const BottomSheet = props => {
     const {modalVisible, setModalVisible} = props;
     const screenHeight = Dimensions.get('screen').height;
@@ -63,53 +65,29 @@ const BottomSheet = props => {
             setModalVisible(false);
         });
     };
-    const clothesList = useContext(MyClosetContext);
 
     return (
-        <Modal
-            visible={modalVisible}
-            animationType={'fade'}
-            transparent
-            statusBarTranslucent>
-            <View style={styles.overlay}>
-                <TouchableWithoutFeedback onPress={closeModal}>
-                    <View style={styles.background} />
-                </TouchableWithoutFeedback>
-                <Animated.View
-                    style={{
-                        ...styles.bottomSheetContainer,
-                        transform: [{translateY: translateY}],
-                    }}
-                    {...panResponders.panHandlers}>
-                    <View>
-                        <FlatList
-                            data={clothesList.myClothList}
-                            renderItem={({item}) => (
-                                <View>
-                                    <TouchableOpacity
-                                        // eslint-disable-next-line react-native/no-inline-styles
-                                        style={{flex: 1, margin: 15}}
-                                        onPress={() => props.getData(item)}>
-                                        <Image
-                                            source={item.src}
-                                            // eslint-disable-next-line react-native/no-inline-styles
-                                            style={{
-                                                width: 100,
-                                                height: 100,
-                                                borderRadius: 20,
-                                            }}
-                                        />
-                                    </TouchableOpacity>
-                                </View>
-                            )}
-                            keyExtractor={(item, index) => index}
-                            numColumns={3}
-                            horizontal={false}
-                        />
-                    </View>
-                </Animated.View>
-            </View>
-        </Modal>
+        <MyClosetProvider>
+            <Modal
+                visible={modalVisible}
+                animationType={'fade'}
+                transparent
+                statusBarTranslucent>
+                <View style={styles.overlay}>
+                    <TouchableWithoutFeedback onPress={closeModal}>
+                        <View style={styles.background} />
+                    </TouchableWithoutFeedback>
+                    <Animated.View
+                        style={{
+                            ...styles.bottomSheetContainer,
+                            transform: [{translateY: translateY}],
+                        }}
+                        {...panResponders.panHandlers}>
+                        <ImgLoader />
+                    </Animated.View>
+                </View>
+            </Modal>
+        </MyClosetProvider>
     );
 };
 
