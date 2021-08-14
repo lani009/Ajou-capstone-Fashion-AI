@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import {Image, Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 import Buttons from '../../components/buttons/Button';
-import MyTopBottomSheet from '../../components/tryonScreen/bottomSheet/MyTopButtomSheet';
-import MyLooksBottomSheet from '../../components/tryonScreen/bottomSheet/MyLooksButtomSheet';
-import MyBottomBottomSheet from '../../components/tryonScreen/bottomSheet/MyBottomButtomSheet';
+import MyTopModal from '../../components/tryonScreen/bottomSheet/MyTopModal';
+import MyLooksModal from '../../components/tryonScreen/bottomSheet/MyLooksModal';
+import MyBottomModal from '../../components/tryonScreen/bottomSheet/MyBottomModal';
 import {
     MySelectionConsumer,
     MySelectionProvider,
@@ -28,17 +28,7 @@ const AvatarView = styled.View`
 const ButtonContainer = styled.View`
     flex-direction: row;
 `;
-const SelectedID = () => {
-    console.log('SelectedId');
-    return (
-        <MySelectionConsumer>
-            {({state}) => {
-                console.log(state.top);
-                console.log(state.bottom);
-            }}
-        </MySelectionConsumer>
-    );
-};
+
 const TryOnScreen = ({props}) => {
     const [modalTopVisible, setModalTopVisible] = useState(false);
     const [modalBottomVisible, setModalBottomVisible] = useState(false);
@@ -53,58 +43,60 @@ const TryOnScreen = ({props}) => {
     const pressMyLooksButton = () => {
         setModalLookVisible(true);
     };
+    const SelectedID = state => {
+        console.log('SelectedId');
+        console.log(state.top);
+        console.log(state.bottom);
+    };
     return (
         <MySelectionProvider>
-            <Container>
-                <MySelectionConsumer>
-                    {({state}) => (
+            <MySelectionConsumer>
+                {({state, actions}) => (
+                    <Container>
                         <AvatarView>
                             <Image source={state.top.imgPath} />
                             <Image source={state.bottom.imgPath} />
-                            <SelectedID />
+                            {SelectedID(state)}
                         </AvatarView>
-                    )}
-                </MySelectionConsumer>
-                <ButtonContainer>
-                    <Buttons.MiddleButton
-                        title="My Tops"
-                        onPress={pressMyTopButton}
-                    />
-                    <Buttons.MiddleButton
-                        title="My Bottoms"
-                        onPress={pressMyButtomButton}
-                    />
-                </ButtonContainer>
-                <MyTopBottomSheet
-                    modalVisible={modalTopVisible}
-                    setModalVisible={setModalTopVisible}
-                />
-                <MyBottomBottomSheet
-                    modalVisible={modalBottomVisible}
-                    setModalVisible={setModalBottomVisible}
-                />
-                <ButtonContainer>
-                    <Buttons.MiddleButton
-                        title="My Looks"
-                        onPress={pressMyLooksButton}
-                    />
-                    <MySelectionConsumer>
-                        {({actions}) => (
+                        <ButtonContainer>
                             <Buttons.MiddleButton
-                                title="Refresh"
+                                title="My Tops"
+                                onPress={pressMyTopButton}
+                            />
+                            <Buttons.MiddleButton
+                                title="My Bottoms"
+                                onPress={pressMyButtomButton}
+                            />
+                        </ButtonContainer>
+                        <MyTopModal
+                            modalVisible={modalTopVisible}
+                            setModalVisible={setModalTopVisible}
+                        />
+                        <MyBottomModal
+                            modalVisible={modalBottomVisible}
+                            setModalVisible={setModalBottomVisible}
+                        />
+                        <ButtonContainer>
+                            <Buttons.MiddleButton
+                                title="My Looks"
+                                onPress={pressMyLooksButton}
+                            />
+
+                            <Buttons.MiddleButton
+                                title="Reset"
                                 onPress={() => {
                                     actions.setTop(undefined);
                                     actions.setBottom(undefined);
                                 }}
                             />
-                        )}
-                    </MySelectionConsumer>
-                </ButtonContainer>
-                <MyLooksBottomSheet
-                    modalVisible={modalLookVisible}
-                    setModalVisible={setModalLookVisible}
-                />
-            </Container>
+                        </ButtonContainer>
+                        <MyLooksModal
+                            modalVisible={modalLookVisible}
+                            setModalVisible={setModalLookVisible}
+                        />
+                    </Container>
+                )}
+            </MySelectionConsumer>
         </MySelectionProvider>
     );
 };
