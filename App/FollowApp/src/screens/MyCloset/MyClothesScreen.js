@@ -1,6 +1,7 @@
-import React from 'react';
-import {View, TouchableOpacity, Text} from 'react-native';
+import React, {useState} from 'react';
+import {View} from 'react-native';
 import styled from 'styled-components/native';
+import SegmentedControlTab from 'react-native-segmented-control-tab';
 
 const Container = styled.SafeAreaView`
     flex: 1;
@@ -11,52 +12,22 @@ const ClothesContainer = styled.View``;
 const ScrollView = styled.ScrollView``;
 
 const MyClothesScreen = () => {
+    const [selectedIndex, setSelectedIndex] = useState(0);
+    const handleSingleIndexSelect = index => {
+        // For single Tab Selection SegmentedControlTab
+        setSelectedIndex(index);
+    };
     return (
         <Container>
-            <View
-                style={{
-                    flexDirection: 'row',
-                    marginTop: 20,
-                    marginBottom: 20,
-                    height: 36,
-                    position: 'relative',
-                }}>
-                <View
-                    style={{
-                        position: 'absolute',
-                        width: '50%',
-                        height: ' 100%',
-                        top: 0,
-                        left: 0,
-                        backgroundColor: 'black',
-                    }}
+            <View style={{width: '70%', margin: '5%'}}>
+                <SegmentedControlTab
+                    values={['Type', 'Color']}
+                    selectedIndex={selectedIndex}
+                    tabStyle={{borderColor: 'black'}}
+                    activeTabStyle={{backgroundColor: 'black'}}
+                    onTabPress={handleSingleIndexSelect}
+                    tabTextStyle={{color: 'black'}}
                 />
-                <TouchableOpacity
-                    style={{
-                        flex: 1,
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        borderWidth: 1,
-                        borderColor: 'black',
-                        borderRightWidth: 0,
-                        borderTopRightRadius: 0,
-                        borderBottomRightRadius: 0,
-                    }}>
-                    <Text style={{color: 'white'}}>Type</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={{
-                        flex: 1,
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        borderWidth: 1,
-                        borderColor: 'black',
-                        borderRightWidth: 0,
-                        borderTopRightRadius: 0,
-                        borderBottomRightRadius: 0,
-                    }}>
-                    <Text>Color</Text>
-                </TouchableOpacity>
             </View>
             <ScrollView>
                 <ClothesContainer></ClothesContainer>
@@ -64,5 +35,4 @@ const MyClothesScreen = () => {
         </Container>
     );
 };
-
 export default MyClothesScreen;
