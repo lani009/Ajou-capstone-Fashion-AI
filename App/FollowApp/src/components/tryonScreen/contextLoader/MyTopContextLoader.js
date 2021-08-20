@@ -1,12 +1,7 @@
-import {BottomTabBar} from '@react-navigation/bottom-tabs';
 import React, {useContext} from 'react';
 import {View, FlatList, TouchableOpacity, Image} from 'react-native';
 import {MyClosetContext} from '../../../context/MyClosetContext';
-import {
-    MySelectionProvider,
-    MySelectionContext,
-    MySelectionConsumer,
-} from '../../../context/MySelectionContext';
+import {MySelectionConsumer} from '../../../context/MySelectionContext';
 
 const ImgLoader = props => {
     const clothesList = useContext(MyClosetContext);

@@ -1,30 +1,26 @@
 import React, {useContext} from 'react';
 import {View, FlatList, TouchableOpacity, Image} from 'react-native';
-import {MyClosetContext} from '../../../context/MyClosetContext';
+import {MyLookContext} from '../../../context/MyLookContext';
 import {MySelectionConsumer} from '../../../context/MySelectionContext';
 
 const ImgLoader = props => {
-    const clothesList = useContext(MyClosetContext);
-    const dataList = clothesList.myClothList.filter(
-        item => item.type === 'bottom',
-    );
-    // const init = item => {
-    //     setClothData(item);
-    //     console.log(clothData);
-    // };
+    const lookList = useContext(MyLookContext);
     return (
         <View>
             <FlatList
-                data={dataList}
+                data={lookList.myLookList}
                 renderItem={({item}) => (
                     <View>
                         <MySelectionConsumer>
                             {({actions}) => (
                                 <TouchableOpacity
-                                    onPress={() => actions.setBottom(item)}
+                                    onPress={() => {
+                                        actions.setTop(item.top);
+                                        actions.setBottom(item.bottom);
+                                    }}
                                     style={{flex: 1, margin: 15}}>
                                     <Image
-                                        source={item.imgPath}
+                                        source={item.img}
                                         style={{
                                             width: 100,
                                             height: 100,

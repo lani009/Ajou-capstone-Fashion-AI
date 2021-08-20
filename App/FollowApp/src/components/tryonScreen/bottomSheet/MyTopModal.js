@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState, useContext} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {
     View,
     StyleSheet,
@@ -7,14 +7,8 @@ import {
     TouchableWithoutFeedback,
     Dimensions,
     PanResponder,
-    FlatList,
-    TouchableOpacity,
-    Image,
 } from 'react-native';
-import {
-    MyClosetContext,
-    MyClosetProvider,
-} from '../../../context/MyClosetContext';
+import {MyClosetProvider} from '../../../context/MyClosetContext';
 import ImgLoader from '../contextLoader/MyTopContextLoader';
 const BottomSheet = props => {
     const {modalVisible, setModalVisible} = props;

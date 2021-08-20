@@ -95,6 +95,7 @@ const TryOnScreen = ({props}) => {
     const pressMyLooksButton = () => {
         setModalLookVisible(true);
     };
+
     return (
         <MySelectionProvider>
             <MySelectionConsumer>
