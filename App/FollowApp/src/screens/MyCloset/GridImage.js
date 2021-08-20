@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Image, Text, TouchableOpacity} from 'react-native';
-import styled from 'styled-components';
+import { StyleSheet, View, Image, Text, TouchableOpacity } from 'react-native';
 
-// props.setState(props.source)}>
 const GridImage = (props) => {
+    console.log(props);
     const modifyState = () => {
         console.log(props);
         props.setRecentPicture(props.source);
@@ -11,54 +10,22 @@ const GridImage = (props) => {
     };
 
     return (
-        <TouchableOpacity onPress={() => modifyState()}>
-            <View style={styles.imageThumbnail}>
-                <Image source={{ uri: props.source }} />
-            </View>
-            <Text>why can't see</Text>
+        <TouchableOpacity onPress={() => modifyState()} style={styles.thumbnailContainer}>
+            <Image source={props.source} style={styles.imageThumbnail} />
         </TouchableOpacity>
     );
 }
-/*
-const GridView = styled.View`
-    width: 100%;
-    height: auto;
-`;
 
-const ImageThumbnail = styled.View`
-    justify-content: center;
-    align-items: center;
-    height: 100;
-`;
-
-const Image200px = styled.View`
-    max-width: 200px;
-    max-height: 200px;
-    overflow: hidden;
-`;
-  
-*/
 
 const styles = StyleSheet.create({
-    /*
-    GridView: {
-        width: 100%,
-        height: 'auto',
+    thumbnailContainer: {
+        flex: 1,
     },
-    */
-
     imageThumbnail: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 100,
+        height: '100%',
+        width: '100%',
+        flex: 1,
     },
-/*
-    Image200px: {
-        maxWidth: 200px,
-        maxHeight: 200px,
-        overflow: 'hidden',
-    },
-*/
 });
 
 
