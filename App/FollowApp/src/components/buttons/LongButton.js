@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components/native';
 import {Dimensions} from 'react-native';
 
-const WindowHeight = Dimensions.get('window').width / 2;
+const WindowHeight = Dimensions.get('window').width / 1.4;
 const ButtonContainer = styled.TouchableOpacity`
-    border-radius: 20px;
+    border-radius: 10px;
     align-items: center;
     padding: 10px 50px;
     margin: 10px 0px;
