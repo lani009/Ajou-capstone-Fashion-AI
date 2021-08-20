@@ -7,7 +7,7 @@ export const MyClothData = [
         'bottom',
         'blue',
         'a',
-        require('../../asset/test/TryOn/Clothes/bottom1.png'),
+        require('../../asset/img/TryOn/Clothes/bottom1.png'),
     ),
     new Cloth(
         'bottom2',
@@ -15,7 +15,7 @@ export const MyClothData = [
         'bottom',
         'black',
         'a',
-        require('../../asset/test/TryOn/Clothes/bottom2.png'),
+        require('../../asset/img/TryOn/Clothes/bottom2.png'),
     ),
     new Cloth(
         'bottom3',
@@ -23,7 +23,7 @@ export const MyClothData = [
         'bottom',
         'blue',
         'a',
-        require('../../asset/test/TryOn/Clothes/bottom3.png'),
+        require('../../asset/img/TryOn/Clothes/bottom3.png'),
     ),
     new Cloth(
         'top1',
@@ -31,7 +31,7 @@ export const MyClothData = [
         'top',
         'black',
         'b',
-        require('../../asset/test/TryOn/Clothes/top1.png'),
+        require('../../asset/img/TryOn/Clothes/top1.png'),
     ),
     new Cloth(
         'top2',
@@ -39,7 +39,7 @@ export const MyClothData = [
         'top',
         'black',
         'b',
-        require('../../asset/test/TryOn/Clothes/top2.png'),
+        require('../../asset/img/TryOn/Clothes/top2.png'),
     ),
     new Cloth(
         'top3',
@@ -47,7 +47,7 @@ export const MyClothData = [
         'top',
         'gray',
         'b',
-        require('../../asset/test/TryOn/Clothes/top3.png'),
+        require('../../asset/img/TryOn/Clothes/top3.png'),
     ),
 ];
 

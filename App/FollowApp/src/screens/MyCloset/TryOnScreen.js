@@ -29,6 +29,58 @@ const ButtonContainer = styled.View`
     flex-direction: row;
 `;
 
+function selectedAvartar(state) {
+    if (state.top.id === undefined) {
+        switch (state.bottom.id) {
+            case undefined:
+                return require('../../../asset/img/TryOn/Avatar/0_0.png');
+            case 'bottom1':
+                return require('../../../asset/img/TryOn/Avatar/0_1.png');
+            case 'bottom2':
+                return require('../../../asset/img/TryOn/Avatar/0_2.png');
+            case 'bottom3':
+                return require('../../../asset/img/TryOn/Avatar/0_3.png');
+        }
+    }
+
+    if (state.top.id === 'top1') {
+        switch (state.bottom.id) {
+            case undefined:
+                return require('../../../asset/img/TryOn/Avatar/1_0.png');
+            case 'bottom1':
+                return require('../../../asset/img/TryOn/Avatar/1_1.png');
+            case 'bottom2':
+                return require('../../../asset/img/TryOn/Avatar/1_2.png');
+            case 'bottom3':
+                return require('../../../asset/img/TryOn/Avatar/1_3.png');
+        }
+    }
+    if (state.top.id === 'top2') {
+        switch (state.bottom.id) {
+            case undefined:
+                return require('../../../asset/img/TryOn/Avatar/2_0.png');
+            case 'bottom1':
+                return require('../../../asset/img/TryOn/Avatar/2_1.png');
+            case 'bottom2':
+                return require('../../../asset/img/TryOn/Avatar/2_2.png');
+            case 'bottom3':
+                return require('../../../asset/img/TryOn/Avatar/2_3.png');
+        }
+    }
+    if (state.top.id === 'top3') {
+        switch (state.bottom.id) {
+            case undefined:
+                return require('../../../asset/img/TryOn/Avatar/3_0.png');
+            case 'bottom1':
+                return require('../../../asset/img/TryOn/Avatar/3_1.png');
+            case 'bottom2':
+                return require('../../../asset/img/TryOn/Avatar/3_2.png');
+            case 'bottom3':
+                return require('../../../asset/img/TryOn/Avatar/3_3.png');
+        }
+    }
+}
+
 const TryOnScreen = ({props}) => {
     const [modalTopVisible, setModalTopVisible] = useState(false);
     const [modalBottomVisible, setModalBottomVisible] = useState(false);
@@ -43,20 +95,16 @@ const TryOnScreen = ({props}) => {
     const pressMyLooksButton = () => {
         setModalLookVisible(true);
     };
-    const SelectedID = state => {
-        console.log('SelectedId');
-        console.log(state.top);
-        console.log(state.bottom);
-    };
     return (
         <MySelectionProvider>
             <MySelectionConsumer>
                 {({state, actions}) => (
                     <Container>
                         <AvatarView>
-                            <Image source={state.top.imgPath} />
-                            <Image source={state.bottom.imgPath} />
-                            {SelectedID(state)}
+                            <Image
+                                source={selectedAvartar(state)}
+                                resizeMode="center"
+                            />
                         </AvatarView>
                         <ButtonContainer>
                             <Buttons.MiddleButton
@@ -85,8 +133,8 @@ const TryOnScreen = ({props}) => {
                             <Buttons.MiddleButton
                                 title="Reset"
                                 onPress={() => {
-                                    actions.setTop(undefined);
-                                    actions.setBottom(undefined);
+                                    actions.setTop('undefined');
+                                    actions.setBottom('undefined');
                                 }}
                             />
                         </ButtonContainer>
