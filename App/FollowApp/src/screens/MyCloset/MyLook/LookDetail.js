@@ -24,10 +24,7 @@ const ClothBox = ({cloth}) => {
     return (
         <ClothBoxContainer>
             <ImageContainer>
-                {/* <ClothImage source={cloth.imgPath} /> */}
-                <ClothImage
-                    source={require('../../../../asset/test/TryOn/Clothes/2.png')}
-                />
+                <ClothImage source={cloth.imgPath} />
             </ImageContainer>
             <DescriptionText>{cloth.name}</DescriptionText>
         </ClothBoxContainer>

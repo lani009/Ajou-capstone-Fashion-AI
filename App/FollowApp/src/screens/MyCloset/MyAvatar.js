@@ -1,25 +1,25 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { StyleSheet, View, Image, Text, TouchableOpacity } from 'react-native';
+import {View, Text} from 'react-native';
 import Buttons from '../../components/buttons/Button';
 
-// import { useEffect } from 'react';
-
-const MyAvatarScreen = ({ navigation }) => {
+const MyAvatarScreen = ({navigation}) => {
     return (
         <Container>
             <ChooseAvatar onPress={() => navigation.navigate('MyAvatarPick')}>
                 <ContainerPicture>
                     <PictureBox>
-                        <Text style={{ fontSize: 33 }}>🖼</Text>
+                        <Text style={{fontSize: 33}}>🖼</Text>
                     </PictureBox>
                     <MidLine></MidLine>
                     <PictureBox>
-                        <Text style={{ fontSize: 33 }}>📷</Text>
+                        <Text style={{fontSize: 33}}>📷</Text>
                     </PictureBox>
                 </ContainerPicture>
                 <View>
-                    <Text style={{ fontSize: 15, marginTop: 30 }}>Find your pic which you want to try clothes on.</Text>
+                    <Text style={{fontSize: 15, marginTop: 30}}>
+                        Find your pic which you want to try clothes on.
+                    </Text>
                 </View>
             </ChooseAvatar>
             <ButtonBox>
@@ -43,7 +43,7 @@ const ChooseAvatar = styled.TouchableOpacity`
     flex: 1;
     justify-content: center;
     align-items: center;
-    background-color: #F5FCFF;
+    background-color: #f5fcff;
     border: 1px;
 `;
 
@@ -62,7 +62,7 @@ const MidLine = styled.View`
     margin-top: 5px;
     border: 1px;
     height: 45px;
-    color: #000000
+    color: #000000;
 `;
 
 const ButtonBox = styled.View`

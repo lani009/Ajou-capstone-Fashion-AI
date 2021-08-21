@@ -1,18 +1,17 @@
-import React, { useState, useContext } from 'react';
-import { ScrollView, SafeAreaView, StyleSheet, View, FlatList, Image, Text, TouchableOpacity, Modal } from 'react-native';
+import React, {useState, useContext} from 'react';
 import styled from 'styled-components/native';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import GridImage from './GridImage';
 import Buttons from '../../components/buttons/Button';
-import GalleryContext from '../../context/GalleryContext'
+import GalleryContext from '../../context/GalleryContext';
 
-const MyAvatarScreenPick = ({ navigation, props }) => {
+const MyAvatarScreenPick = ({navigation, props}) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [recentPicture, setRecentPicture] = useState(0);
-    const images = useContext(GalleryContext.AvatarImgContext)
+    const images = useContext(GalleryContext.AvatarImgContext);
 
-    let GridImages = []
-    for (let i = 0; i < (images.length / 2); i++) {
+    let GridImages = [];
+    for (let i = 0; i < images.length / 2; i++) {
         GridImages.push(
             <GridView>
                 <GridImage
@@ -27,8 +26,8 @@ const MyAvatarScreenPick = ({ navigation, props }) => {
                     setRecentPicture={setRecentPicture}
                     setModalVisible={setModalVisible}
                 />
-            </GridView>
-        )
+            </GridView>,
+        );
     }
 
     return (
@@ -38,25 +37,26 @@ const MyAvatarScreenPick = ({ navigation, props }) => {
                     <ImageViewer
                         imageUrls={images}
                         index={recentPicture}
-                        onChange={(index) => setRecentPicture(index)}
+                        onChange={index => setRecentPicture(index)}
                     />
                 </ImageViewerContainer>
                 <ChooseImageButton2>
-                    <Buttons.LongButton title="적용" onPress={() => setModalVisible(false)} />
+                    <Buttons.LongButton
+                        title="적용"
+                        onPress={() => setModalVisible(false)}
+                    />
                 </ChooseImageButton2>
             </AvatarModal>
-            <GridContainer>
-                {GridImages}
-            </GridContainer>
+            <GridContainer>{GridImages}</GridContainer>
             <ChooseImageButton1>
                 <Buttons.LongButton
                     title="선택 완료"
-                    onPress={() => console.log("context 연결해야함.")}
+                    onPress={() => console.log('context 연결해야함.')}
                 />
             </ChooseImageButton1>
         </Container>
     );
-}
+};
 
 const Container = styled.SafeAreaView`
     flex: 1;
@@ -99,6 +99,5 @@ const ChooseImageButton2 = styled.View`
     justify-content: center;
     background-color: black;
 `;
-
 
 export default MyAvatarScreenPick;

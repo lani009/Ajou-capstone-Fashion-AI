@@ -37,18 +37,12 @@ function MyClosetScreen({navigation}) {
                 <TouchableOpacity
                     style={styles.BoxButton}
                     onPress={() => navigation.navigate('MyClothes')}>
-                    <Text
-                        style={styles.Boxtext}>
-                        MyCloth
-                    </Text>
+                    <Text style={styles.Boxtext}>MyCloth</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.BoxButton}
                     onPress={() => navigation.navigate('MyLook')}>
-                    <Text
-                        style={styles.Boxtext}>
-                        MyLook
-                    </Text>
+                    <Text style={styles.Boxtext}>MyLook</Text>
                 </TouchableOpacity>
             </View>
             <View
@@ -56,18 +50,12 @@ function MyClosetScreen({navigation}) {
                 <TouchableOpacity
                     style={styles.BoxButton}
                     onPress={() => navigation.navigate('MyAvatar')}>
-                    <Text
-                        style={styles.Boxtext}>
-                        MyAvatar
-                    </Text>
+                    <Text style={styles.Boxtext}>MyAvatar</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.BoxButton}
                     onPress={() => navigation.navigate('TryOn')}>
-                    <Text
-                        style={styles.Boxtext}>
-                        TryOn
-                    </Text>
+                    <Text style={styles.Boxtext}>TryOn</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -101,7 +89,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginTop: 60,
         color: 'white',
-    }
+    },
 });
 
 export default MyClosetScreen;

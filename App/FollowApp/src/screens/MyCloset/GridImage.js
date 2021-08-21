@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, Image, Text, TouchableOpacity } from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, View, Image, Text, TouchableOpacity} from 'react-native';
 
-const GridImage = (props) => {
+const GridImage = props => {
     const modifyState = () => {
         props.setRecentPicture(props.id);
         props.setModalVisible(true);
     };
 
     return (
-        <TouchableOpacity onPress={() => modifyState()} style={styles.thumbnailContainer}>
+        <TouchableOpacity
+            onPress={() => modifyState()}
+            style={styles.thumbnailContainer}>
             <Image source={props.source} style={styles.imageThumbnail} />
         </TouchableOpacity>
     );
-}
-
+};
 
 const styles = StyleSheet.create({
     thumbnailContainer: {
@@ -25,6 +26,5 @@ const styles = StyleSheet.create({
         flex: 1,
     },
 });
-
 
 export default GridImage;
