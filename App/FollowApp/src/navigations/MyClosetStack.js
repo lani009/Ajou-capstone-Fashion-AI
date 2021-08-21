@@ -1,6 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import * as MyCloth from '../screens/MyCloset/MyCloth';
+import LookDetail from '../screens/MyCloset/MyLook/LookDetail';
 
 const Stack = createStackNavigator();
 
@@ -31,6 +32,7 @@ const MyClosetStack = () => {
                 name="TryOn"
                 component={MyCloth.default.TryOnScreen}
             />
+            <Stack.Screen name="MyLookDetail" component={LookDetail} />
         </Stack.Navigator>
     );
 };

@@ -18,8 +18,8 @@ const UserContext = createContext({
     dispatch: undefined,
 });
 
-const UserContextProvider = ({ children }) => {
-    const [user, setUser] = useState({});
+const UserContextProvider = ({children}) => {
+    const [user, setUser] = useState({isLoggedIn: true}); // TODO 릴리즈 할 때는 false로 해놔야함
     const dispatch = (isLoggedIn, userName, password) => {
         setUser({ isLoggedIn, userName, password });
     };
