@@ -1,13 +1,13 @@
-import React, {useState, createContext} from 'react';
+import React, { useState, createContext } from 'react';
 
 const MyClosetContext = createContext({
     myClothList: [],
     dispatch: undefined,
 });
 
-const MyClosetProvider = ({children}) => {
+const MyClosetProvider = ({ children }) => {
     const [clothList, setClothList] = useState([]);
-    const value = {myClothList: clothList, dispatch: setClothList};
+    const value = { myClothList: clothList, dispatch: setClothList };
     return (
         <MyClosetContext.Provider value={value}>
             {children}
@@ -16,4 +16,4 @@ const MyClosetProvider = ({children}) => {
 };
 
 
-export {MyClosetContext, MyClosetProvider};
+export { MyClosetContext, MyClosetProvider };

@@ -1,4 +1,4 @@
-import React, {useState, createContext} from 'react';
+import React, { useState, createContext } from 'react';
 
 const UserContext = createContext({
     user: {
@@ -18,15 +18,15 @@ const UserContext = createContext({
     dispatch: undefined,
 });
 
-const UserContextProvider = ({children}) => {
+const UserContextProvider = ({ children }) => {
     const [user, setUser] = useState({});
     const dispatch = (isLoggedIn, userName, password) => {
-        setUser({isLoggedIn, userName, password});
+        setUser({ isLoggedIn, userName, password });
     };
-    const value = {user, dispatch};
+    const value = { user, dispatch };
     return (
         <UserContext.Provider value={value}>{children}</UserContext.Provider>
     );
 };
 
-export {UserContext, UserContextProvider};
+export { UserContext, UserContextProvider };

@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import { ScrollView, SafeAreaView, StyleSheet, View, FlatList, Image, Text, TouchableOpacity, Modal } from 'react-native';
 import styled from 'styled-components/native';
 import ImageViewer from 'react-native-image-zoom-viewer';

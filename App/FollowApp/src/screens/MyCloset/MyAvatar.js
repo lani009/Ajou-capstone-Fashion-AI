@@ -19,7 +19,7 @@ const MyAvatarScreen = ({ navigation }) => {
                     </PictureBox>
                 </ContainerPicture>
                 <View>
-                    <Text style={{fontSize: 15, marginTop: 30}}>Find your pic which you want to try clothes on.</Text>
+                    <Text style={{ fontSize: 15, marginTop: 30 }}>Find your pic which you want to try clothes on.</Text>
                 </View>
             </ChooseAvatar>
             <ButtonBox>
