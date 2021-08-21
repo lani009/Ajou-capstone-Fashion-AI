@@ -1,4 +1,4 @@
-import React, {useState, createContext} from 'react';
+import React, { useState, createContext } from 'react';
 
 const UserContext = createContext({
     user: {
@@ -21,12 +21,12 @@ const UserContext = createContext({
 const UserContextProvider = ({children}) => {
     const [user, setUser] = useState({isLoggedIn: true}); // TODO 릴리즈 할 때는 false로 해놔야함
     const dispatch = (isLoggedIn, userName, password) => {
-        setUser({isLoggedIn, userName, password});
+        setUser({ isLoggedIn, userName, password });
     };
-    const value = {user, dispatch};
+    const value = { user, dispatch };
     return (
         <UserContext.Provider value={value}>{children}</UserContext.Provider>
     );
 };
 
-export {UserContext, UserContextProvider};
+export { UserContext, UserContextProvider };

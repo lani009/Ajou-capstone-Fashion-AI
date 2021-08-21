@@ -1,11 +1,13 @@
 import MyAvatarScreen from './MyAvatar';
 import MyClosetScreen from './MyClosetScreen';
-import MyLookScreen from './MyLook/MyLookScreen';
+import MyAvatarPick from './MyAvatarPick';
+import MyLookScreen from './MyLookScreen';
 import TryOnScreen from './TryOnScreen';
 import MyClothesScreen from './MyClothesScreen';
 
 export default {
     MyAvatarScreen,
+    MyAvatarPick,
     MyClosetScreen,
     MyLookScreen,
     TryOnScreen,

@@ -16,4 +16,5 @@ const MyClosetProvider = ({children}) => {
     );
 };
 
-export {MyClosetContext, MyClosetProvider};
+
+export { MyClosetContext, MyClosetProvider };

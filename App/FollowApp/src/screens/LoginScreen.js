@@ -1,9 +1,9 @@
-import React, {useState, useRef, useContext, useEffect} from 'react';
-import {Text} from 'react-native';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import React, { useState, useRef, useContext, useEffect } from 'react';
+import { Text } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styled from 'styled-components';
 import PressableButton from '../components/buttons/PressableButton';
-import {UserContext} from '../context/UserContext';
+import { UserContext } from '../context/UserContext';
 import InputArea from './../components/InputArea';
 
 const Container = styled.View`
@@ -29,7 +29,7 @@ const LoginScreen = () => {
         setDisabled(!(userId && password));
     }, [userId, password]);
 
-    const containerStyle = {flex: 1};
+    const containerStyle = { flex: 1 };
 
     return (
         <KeyboardAwareScrollView
