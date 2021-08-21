@@ -13,7 +13,7 @@ const LookBox = ({item, navigation}) => {
         margin: 10px auto;
         height: 120px;
         width: 90%;
-        background-color: aliceblue;
+        background-color: ${({theme}) => theme.LookBox.background};
         border-radius: 5px;
         flex-direction: row;
         align-items: center;
@@ -38,7 +38,6 @@ const LookBox = ({item, navigation}) => {
         height: 100px;
         width: 100px;
     `;
-    console.log(item.top.name);
 
     return (
         <LookContainer
@@ -49,7 +48,7 @@ const LookBox = ({item, navigation}) => {
                 });
             }}>
             <ImageContainer>
-                <ClothImage source={item.img} resizeMode="contain" />
+                <ClothImage source={item.imgPath} resizeMode="contain" />
             </ImageContainer>
             <TitleContainer>
                 <TitleText>{item.name}</TitleText>

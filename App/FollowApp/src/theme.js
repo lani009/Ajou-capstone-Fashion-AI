@@ -27,4 +27,7 @@ export const theme = {
         border: colors.grey_1,
         disabledBackground: colors.grey_0,
     },
+    LookBox: {
+        background: 'aliceblue',
+    },
 };
