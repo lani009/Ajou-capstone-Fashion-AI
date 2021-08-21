@@ -1,10 +1,16 @@
 import React, {useState} from 'react';
-import {Image} from 'react-native';
+import {Image, Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 import Buttons from '../../components/buttons/Button';
-import MyClothesBottomSheet from '../../components/bottomSheet/MyClothesButtomSheet';
-import MyLooksBottomSheet from '../../components/bottomSheet/MyLooksButtomSheet';
+import MyTopModal from '../../components/tryonScreen/bottomSheet/MyTopModal';
+import MyLooksModal from '../../components/tryonScreen/bottomSheet/MyLooksModal';
+import MyBottomModal from '../../components/tryonScreen/bottomSheet/MyBottomModal';
+import {
+    MySelectionConsumer,
+    MySelectionProvider,
+} from '../../context/MySelectionContext';
 
+const WindowHeight = Dimensions.get('window').height / 9;
 const Container = styled.SafeAreaView`
     flex: 1;
     align-items: center;
@@ -16,54 +22,131 @@ const AvatarView = styled.View`
     width: 90%;
     height: 50%;
     border: 1px;
-    margin-bottom: 20%;
+    margin-bottom: ${WindowHeight}px;
     margin-top: 10%;
 `;
+const ButtonContainer = styled.View`
+    flex-direction: row;
+`;
+
+function selectedAvartar(state) {
+    if (state.top.id === undefined) {
+        switch (state.bottom.id) {
+            case undefined:
+                return require('../../../asset/img/TryOn/Avatar/0_0.png');
+            case 'bottom1':
+                return require('../../../asset/img/TryOn/Avatar/0_1.png');
+            case 'bottom2':
+                return require('../../../asset/img/TryOn/Avatar/0_2.png');
+            case 'bottom3':
+                return require('../../../asset/img/TryOn/Avatar/0_3.png');
+        }
+    }
+
+    if (state.top.id === 'top1') {
+        switch (state.bottom.id) {
+            case undefined:
+                return require('../../../asset/img/TryOn/Avatar/1_0.png');
+            case 'bottom1':
+                return require('../../../asset/img/TryOn/Avatar/1_1.png');
+            case 'bottom2':
+                return require('../../../asset/img/TryOn/Avatar/1_2.png');
+            case 'bottom3':
+                return require('../../../asset/img/TryOn/Avatar/1_3.png');
+        }
+    }
+    if (state.top.id === 'top2') {
+        switch (state.bottom.id) {
+            case undefined:
+                return require('../../../asset/img/TryOn/Avatar/2_0.png');
+            case 'bottom1':
+                return require('../../../asset/img/TryOn/Avatar/2_1.png');
+            case 'bottom2':
+                return require('../../../asset/img/TryOn/Avatar/2_2.png');
+            case 'bottom3':
+                return require('../../../asset/img/TryOn/Avatar/2_3.png');
+        }
+    }
+    if (state.top.id === 'top3') {
+        switch (state.bottom.id) {
+            case undefined:
+                return require('../../../asset/img/TryOn/Avatar/3_0.png');
+            case 'bottom1':
+                return require('../../../asset/img/TryOn/Avatar/3_1.png');
+            case 'bottom2':
+                return require('../../../asset/img/TryOn/Avatar/3_2.png');
+            case 'bottom3':
+                return require('../../../asset/img/TryOn/Avatar/3_3.png');
+        }
+    }
+}
 
 const TryOnScreen = ({props}) => {
-    const [modalOneVisible, setModalOneVisible] = useState(false);
-    const [modalTwoVisible, setModalTwoVisible] = useState(false);
-    const pressMyClothesButton = () => {
-        setModalOneVisible(true);
+    const [modalTopVisible, setModalTopVisible] = useState(false);
+    const [modalBottomVisible, setModalBottomVisible] = useState(false);
+    const [modalLookVisible, setModalLookVisible] = useState(false);
+
+    const pressMyTopButton = () => {
+        setModalTopVisible(true);
+    };
+    const pressMyButtomButton = () => {
+        setModalBottomVisible(true);
     };
     const pressMyLooksButton = () => {
-        setModalTwoVisible(true);
-    };
-    const [imgData, setImgData] = useState('');
-    const getData = data => {
-        setImgData(data);
+        setModalLookVisible(true);
     };
 
     return (
-        <Container>
-            <AvatarView>
-                <Image
-                    source={imgData.imgPath}
-                    // eslint-disable-next-line react-native/no-inline-styles
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        borderRadius: 20,
-                    }}
-                />
-            </AvatarView>
-            <Buttons.LongButton
-                title="My Clothes"
-                onPress={pressMyClothesButton}
-            />
-            <MyClothesBottomSheet
-                modalVisible={modalOneVisible}
-                setModalVisible={setModalOneVisible}
-                getData={getData}
-            />
+        <MySelectionProvider>
+            <MySelectionConsumer>
+                {({state, actions}) => (
+                    <Container>
+                        <AvatarView>
+                            <Image
+                                source={selectedAvartar(state)}
+                                resizeMode="center"
+                            />
+                        </AvatarView>
+                        <ButtonContainer>
+                            <Buttons.MiddleButton
+                                title="My Tops"
+                                onPress={pressMyTopButton}
+                            />
+                            <Buttons.MiddleButton
+                                title="My Bottoms"
+                                onPress={pressMyButtomButton}
+                            />
+                        </ButtonContainer>
+                        <MyTopModal
+                            modalVisible={modalTopVisible}
+                            setModalVisible={setModalTopVisible}
+                        />
+                        <MyBottomModal
+                            modalVisible={modalBottomVisible}
+                            setModalVisible={setModalBottomVisible}
+                        />
+                        <ButtonContainer>
+                            <Buttons.MiddleButton
+                                title="My Looks"
+                                onPress={pressMyLooksButton}
+                            />
 
-            <Buttons.LongButton title="My Looks" onPress={pressMyLooksButton} />
-            <MyLooksBottomSheet
-                modalVisible={modalTwoVisible}
-                setModalVisible={setModalTwoVisible}
-                getData={getData}
-            />
-        </Container>
+                            <Buttons.MiddleButton
+                                title="Reset"
+                                onPress={() => {
+                                    actions.setTop('undefined');
+                                    actions.setBottom('undefined');
+                                }}
+                            />
+                        </ButtonContainer>
+                        <MyLooksModal
+                            modalVisible={modalLookVisible}
+                            setModalVisible={setModalLookVisible}
+                        />
+                    </Container>
+                )}
+            </MySelectionConsumer>
+        </MySelectionProvider>
     );
 };
 

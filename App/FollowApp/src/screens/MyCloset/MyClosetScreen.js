@@ -4,7 +4,7 @@ import {StyleSheet, View, Image, Text, TouchableOpacity} from 'react-native';
 function MyClosetScreen({navigation}) {
     return (
         <View>
-            <View style={{width: 400, height: 150, backgroundColor: 'black'}} />
+            <View style={styles.upbox} />
 
             <Image
                 source={require('./Image/12.png')}
@@ -14,7 +14,7 @@ function MyClosetScreen({navigation}) {
             <Text
                 style={{
                     marginTop: 60,
-                    marginLeft: 170,
+                    textAlign: 'center',
                     fontWeight: 'bold',
                     fontSize: 20,
                     color: 'black',
@@ -25,58 +25,47 @@ function MyClosetScreen({navigation}) {
             <Text
                 style={{
                     marginTop: 10,
-                    marginLeft: 100,
+                    textAlign: 'center',
                     fontWeight: 'normal',
                     fontSize: 15,
                     color: 'black',
                 }}>
                 jkworldchampion@gamil.com
             </Text>
-            <View style={{flexDirection: 'row'}}>
-                <TouchableOpacity style={styles.BoxSutton}
+            <View
+                style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
+                <TouchableOpacity
+                    style={styles.BoxButton}
                     onPress={() => navigation.navigate('MyClothes')}>
                     <Text
-                        style={{
-                            fontSize: 16.5,
-                            textAlign: 'center',
-                            color: 'white',
-                        }}>
+                        style={styles.Boxtext}>
                         MyCloth
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.BoxSutton}
+                <TouchableOpacity
+                    style={styles.BoxButton}
                     onPress={() => navigation.navigate('MyLook')}>
                     <Text
-                        style={{
-                            fontSize: 16.5,
-                            textAlign: 'center',
-                            color: 'white',
-                        }}>
+                        style={styles.Boxtext}>
                         MyLook
                     </Text>
                 </TouchableOpacity>
             </View>
-            <View style={{flexDirection: 'row'}}>
+            <View
+                style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
                 <TouchableOpacity
-                    style={styles.BoxSutton}
+                    style={styles.BoxButton}
                     onPress={() => navigation.navigate('MyAvatar')}>
                     <Text
-                        style={{
-                            fontSize: 16.5,
-                            textAlign: 'center',
-                            color: 'white',
-                        }}>
+                        style={styles.Boxtext}>
                         MyAvatar
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.BoxSutton}
-                onPress={() => navigation.navigate('TryOn')}>
+                <TouchableOpacity
+                    style={styles.BoxButton}
+                    onPress={() => navigation.navigate('TryOn')}>
                     <Text
-                        style={{
-                            fontSize: 16.5,
-                            textAlign: 'center',
-                            color: 'white',
-                        }}>
+                        style={styles.Boxtext}>
                         TryOn
                     </Text>
                 </TouchableOpacity>
@@ -93,16 +82,26 @@ const styles = StyleSheet.create({
         marginTop: 100,
         marginLeft: 140,
     },
-    BoxSutton: {
+    BoxButton: {
         justifyContent: 'flex-start',
         backgroundColor: 'black',
-        padding: 40,
+        padding: 0,
         marginTop: 40,
         borderRadius: 13,
-        marginLeft: 30,
-        width: 150,
+        width: 170,
         height: 150,
     },
+    upbox: {
+        width: '100%',
+        height: 150,
+        backgroundColor: 'black',
+    },
+    Boxtext: {
+        fontSize: 16.5,
+        textAlign: 'center',
+        marginTop: 60,
+        color: 'white',
+    }
 });
 
 export default MyClosetScreen;

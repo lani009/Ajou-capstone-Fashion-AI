@@ -1,5 +1,5 @@
 import React, {useState, createContext} from 'react';
-import {MyLookData} from '../data/MyLookData';
+import {MyLooksData} from '../data/MyLooksData';
 
 const MyLookContext = createContext({
     myLookList: [],
@@ -8,7 +8,7 @@ const MyLookContext = createContext({
 
 const MyLookProvider = ({children}) => {
     const [, setLookList] = useState([]);
-    const value = {myLookList: MyLookData, dispatch: setLookList};
+    const value = {myLookList: MyLooksData, dispatch: setLookList};
     return (
         <MyLookContext.Provider value={value}>
             {children}

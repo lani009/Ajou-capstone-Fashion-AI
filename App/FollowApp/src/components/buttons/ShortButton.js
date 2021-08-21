@@ -2,19 +2,21 @@ import React from 'react';
 import styled from 'styled-components/native';
 import {Dimensions} from 'react-native';
 
-const WindowHeight = Dimensions.get('window').width - 320;
+const WindowWidth = Dimensions.get('window').width / 5;
 const ButtonContainer = styled.TouchableOpacity`
-    border-radius: 20px;
+    border-radius: 40px;
     align-items: center;
-    padding: 5px 20px;
-    margin: 10px 0px;
+    padding: 0px 0px;
+    margin: 20px 20px;
     justify-content: center;
     background-color: #000000;
-    width: ${WindowHeight}px;
+    width: ${WindowWidth}px;
+    height: 3.5%;
+    align-self: flex-end;
 `;
 
 const Title = styled.Text`
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
     color: #fff;
 `;
