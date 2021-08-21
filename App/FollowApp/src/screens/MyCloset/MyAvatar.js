@@ -1,32 +1,33 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {StyleSheet, View, Image, Text, TouchableOpacity} from 'react-native';
+import { StyleSheet, View, Image, Text, TouchableOpacity } from 'react-native';
 import Buttons from '../../components/buttons/Button';
 
 // import { useEffect } from 'react';
 
-const MyAvatarScreen = ({navigation}) => {
+const MyAvatarScreen = ({ navigation }) => {
     return (
         <Container>
             <ChooseAvatar onPress={() => navigation.navigate('MyAvatarPick')}>
-                <View style={{flexDirection: 'row', margin: 20 }}>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                    <Text style={{ fontSize: 30} }>🖼</Text>
-                    </View>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <Text style={{ fontSize: 30 }}>📷</Text>
-                    </View>
-                </View>
+                <ContainerPicture>
+                    <PictureBox>
+                        <Text style={{ fontSize: 33 }}>🖼</Text>
+                    </PictureBox>
+                    <MidLine></MidLine>
+                    <PictureBox>
+                        <Text style={{ fontSize: 33 }}>📷</Text>
+                    </PictureBox>
+                </ContainerPicture>
                 <View>
-                    <Text>Find your pic which you want to try clothes on.</Text>
+                    <Text style={{fontSize: 15, marginTop: 30}}>Find your pic which you want to try clothes on.</Text>
                 </View>
             </ChooseAvatar>
-            <View style={{ flex: 0.4, alignItems: 'flex-end', flexDirection:'row'}}>
+            <ButtonBox>
                 <Buttons.LongButton
                     title="적용"
                     onPress={() => alert('아바타 변경 완료')}
                 />
-            </View>
+            </ButtonBox>
         </Container>
     );
 };
@@ -46,11 +47,28 @@ const ChooseAvatar = styled.TouchableOpacity`
     border: 1px;
 `;
 
-const leftBox = styled.View`
-    
+const ContainerPicture = styled.View`
+    flex-direction: row;
+    margin: 20px;
 `;
 
-const rightBox = styled.View`
-    flex:1;
+const PictureBox = styled.View`
+    flex: 1;
+    justify-content: center;
+    align-items: center;
 `;
+
+const MidLine = styled.View`
+    margin-top: 5px;
+    border: 1px;
+    height: 45px;
+    color: #000000
+`;
+
+const ButtonBox = styled.View`
+    flex: 0.4;
+    align-items: flex-end;
+    flex-direction: row;
+`;
+
 export default MyAvatarScreen;

@@ -1,17 +1,17 @@
-import React, {useState} from 'react';
-import { SafeAreaView, StyleSheet, View, FlatList, Image, Text, TouchableOpacity, Modal } from 'react-native';
+import React, {useState, useContext} from 'react';
+import { ScrollView, SafeAreaView, StyleSheet, View, FlatList, Image, Text, TouchableOpacity, Modal } from 'react-native';
 import styled from 'styled-components/native';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import GridImage from './GridImage';
 import Buttons from '../../components/buttons/Button';
-
-const images = makeImageGallery();
+import GalleryContext from '../../context/GalleryContext'
 
 const MyAvatarScreenPick = ({ navigation, props }) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [recentPicture, setRecentPicture] = useState(0);
-    let GridImages = []
+    const images = useContext(GalleryContext.AvatarImgContext)
 
+    let GridImages = []
     for (let i = 0; i < (images.length / 2); i++) {
         GridImages.push(
             <GridView>
@@ -41,74 +41,27 @@ const MyAvatarScreenPick = ({ navigation, props }) => {
                         onChange={(index) => setRecentPicture(index)}
                     />
                 </ImageViewerContainer>
-                <ChooseImageButton>
+                <ChooseImageButton2>
                     <Buttons.LongButton title="적용" onPress={() => setModalVisible(false)} />
-                </ChooseImageButton>
+                </ChooseImageButton2>
             </AvatarModal>
             <GridContainer>
                 {GridImages}
             </GridContainer>
-            <ChooseImageButton>
+            <ChooseImageButton1>
                 <Buttons.LongButton
                     title="선택 완료"
-                    onPress={() => setModalVisible(false)}
+                    onPress={() => console.log("context 연결해야함.")}
                 />
-            </ChooseImageButton>
+            </ChooseImageButton1>
         </Container>
     );
-}
-
-function makeImageGallery() {
-    return [
-        {
-            url: '',
-            props: {
-                source: require('./Image/avatar/avatar1.png'),
-            },
-            id: 0,
-        },
-        {
-            url: '',
-            props: {
-                source: require('./Image/avatar/avatar2.png'),
-            },
-            id: 1,
-        },
-        {
-            url: '',
-            props: {
-                source: require('./Image/avatar/avatar3.png'),
-            },
-            id: 2,
-        },
-        {
-            url: '',
-            props: {
-                source: require('./Image/avatar/avatar4.png'),
-            },
-            id: 3,
-        },
-        {
-            url: '',
-            props: {
-                source: require('./Image/avatar/avatar5.png'),
-            },
-            id: 4,
-        },
-        {
-            url: '',
-            props: {
-                source: require('./Image/avatar/avatar6.png'),
-            },
-            id: 5,
-        },
-    ]
 }
 
 const Container = styled.SafeAreaView`
     flex: 1;
     background-color: white;
-    margin: 1px;
+    margin-top: 1px;
 `;
 
 const AvatarModal = styled.Modal`
@@ -119,7 +72,7 @@ const AvatarModal = styled.Modal`
 const GridContainer = styled.View`
     flex: 4;
     flex-direction: column;
-    margin: 1px;
+    margin: 0.5px;
     border: 1px solid black;
 `;
 
@@ -133,11 +86,18 @@ const ImageViewerContainer = styled.View`
     background-color: black;
 `;
 
-const ChooseImageButton = styled.View`
+const ChooseImageButton1 = styled.View`
     flex: 0.5;
     flex-direction: row;
     justify-content: center;
     background-color: white;
+`;
+
+const ChooseImageButton2 = styled.View`
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+    background-color: black;
 `;
 
 
