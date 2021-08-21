@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Image, Text, TouchableOpacity } from 'react-native';
 
 const GridImage = (props) => {
-    console.log(props);
     const modifyState = () => {
-        console.log(props);
-        props.setRecentPicture(props.source);
+        props.setRecentPicture(props.id);
         props.setModalVisible(true);
     };
 
