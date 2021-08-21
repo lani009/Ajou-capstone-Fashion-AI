@@ -7,6 +7,7 @@ const Stack = createStackNavigator();
 const LoginStack = () => {
     return (
         <Stack.Navigator
+            initialRouteName="Login"
             screenOptions={{
                 headerTitleAlign: 'center',
             }}>

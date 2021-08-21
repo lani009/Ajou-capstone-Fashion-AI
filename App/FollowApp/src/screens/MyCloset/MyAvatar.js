@@ -1,5 +1,10 @@
+import React from 'react';
+import { Text } from "react-native";
+
 const MyAvatarScreen = () => {
-    return null;
+    return <Text>
+        여긴 아바타
+    </Text>;
 };
 
 export default MyAvatarScreen;
