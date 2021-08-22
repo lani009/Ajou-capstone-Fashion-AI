@@ -31,6 +31,6 @@ export const theme = {
         background: '#D1E8ED',
     },
     LookDetail: {
-        background: '#CEDEFF',
+        background: 'black',
     },
 };
