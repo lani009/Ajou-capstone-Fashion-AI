@@ -28,6 +28,9 @@ export const theme = {
         disabledBackground: colors.grey_0,
     },
     LookBox: {
-        background: 'aliceblue',
+        background: '#D1E8ED',
+    },
+    LookDetail: {
+        background: '#CEDEFF',
     },
 };
