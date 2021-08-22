@@ -3,8 +3,12 @@ import React, {useState, createContext} from 'react';
 const MySelectionContext = createContext({
     state: {top: '', bottom: ''},
     actions: {
-        setTop: () => {},
-        setBottom: () => {},
+        setTop: () => {
+            // this is intentional
+        },
+        setBottom: () => {
+            // this is intentional
+        },
     },
 });
 
