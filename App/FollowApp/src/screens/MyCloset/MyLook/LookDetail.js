@@ -22,6 +22,7 @@ const ClothBox = ({cloth}) => {
     `;
     const DescriptionText = styled.Text`
         font-weight: bold;
+        font-size: 15px;
     `;
     return (
         <ClothBoxContainer>
@@ -33,20 +34,20 @@ const ClothBox = ({cloth}) => {
     );
 };
 
-const TextCircleBox = ({text}) => {
+const TextBox = ({text}) => {
     const Container = styled.View`
-        width: 40px;
-        height: 40px;
-        border-radius: 20px;
-        border: 2px solid black;
+        padding-left: 10px;
+        padding-right: 10px;
+        height: 35px;
         background-color: ${({theme}) => theme.LookDetail.background};
         align-items: center;
         justify-content: center;
         margin: 0 auto;
     `;
     const InnerText = styled.Text`
-        font-size: 15px;
+        font-size: 17px;
         font-weight: bold;
+        color: white;
     `;
     return (
         <Container>
@@ -55,6 +56,10 @@ const TextCircleBox = ({text}) => {
     );
 };
 
+/**
+ * LookDetail Screen Component
+ * @param {*} route
+ */
 const LookDetail = ({route}) => {
     const Container = styled.View`
         margin-bottom: 20px;
@@ -68,11 +73,11 @@ const LookDetail = ({route}) => {
         <ScrollView>
             <Container>
                 <LookCombination>
-                    <TextCircleBox text="상의" />
+                    <TextBox text="TOP" />
                     <ClothBox cloth={top} />
                 </LookCombination>
                 <LookCombination>
-                    <TextCircleBox text="하의" />
+                    <TextBox text="BOTTOM" />
                     <ClothBox cloth={bottom} />
                 </LookCombination>
             </Container>
