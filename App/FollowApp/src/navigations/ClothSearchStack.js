@@ -1,9 +1,7 @@
 import React from 'react';
-import createStackNavigator from '@react-navigation/stack';
-import {
-    FindImageScreen,
-    ClothSearchResultScreen,
-} from './../screens/ClothSearch/ClothSearch';
+import {createStackNavigator} from '@react-navigation/stack';
+import FindImageScreen from '../screens/ClothSearch/FindImageScreen';
+import ResultScreen from '../screens/ClothSearch/ResultScreen';
 
 const Stack = createStackNavigator();
 
@@ -11,10 +9,7 @@ const ClothSearchStack = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen name="FindImage" component={FindImageScreen} />
-            <Stack.Screen
-                name="ClothSearchResult"
-                component={ClothSearchResultScreen}
-            />
+            <Stack.Screen name="SearchResult" component={ResultScreen} />
         </Stack.Navigator>
     );
 };
