@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         width: 110,
         height: 110,
         position: 'absolute',
-        marginTop: 100,
+        marginTop: 0,
         marginLeft: 140,
     },
     BoxButton: {
