@@ -20,7 +20,9 @@ const ClothBox = ({cloth}) => {
         align-items: center;
         margin-top: 20px;
     `;
-    const DescriptionText = styled.Text``;
+    const DescriptionText = styled.Text`
+        font-weight: bold;
+    `;
     return (
         <ClothBoxContainer>
             <ImageContainer>
@@ -36,8 +38,8 @@ const TextCircleBox = ({text}) => {
         width: 40px;
         height: 40px;
         border-radius: 20px;
-        border: 1px solid red;
-        background-color: aliceblue;
+        border: 2px solid black;
+        background-color: ${({theme}) => theme.LookDetail.background};
         align-items: center;
         justify-content: center;
         margin: 0 auto;
@@ -54,9 +56,11 @@ const TextCircleBox = ({text}) => {
 };
 
 const LookDetail = ({route}) => {
-    const Container = styled.View``;
+    const Container = styled.View`
+        margin-bottom: 20px;
+    `;
     const LookCombination = styled.View`
-        margin-top: 20px;
+        margin-top: 40px;
     `;
 
     const {top, bottom} = route.params;
