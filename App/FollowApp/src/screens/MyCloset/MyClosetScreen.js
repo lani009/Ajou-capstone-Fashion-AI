@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     },
     upbox: {
         width: '100%',
-        height: 150,
+        height: '10%',
         backgroundColor: 'black',
     },
     Boxtext: {
