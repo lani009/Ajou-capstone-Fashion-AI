@@ -27,14 +27,11 @@ const ButtonContainer = styled.View`
     flex-direction: row;
 `;
 
-const FindImageScreen = ({props}) => {
+const FindImageScreen = ({navigation}) => {
     const [modalClothesVisible, setModalClothesVisible] = useState(false);
 
     const pressMyClothesButton = () => {
         setModalClothesVisible(true);
-    };
-    const serviceAlert = () => {
-        Alert.alert('알림', '서비스 개발 중입니다.');
     };
 
     return (
@@ -67,7 +64,14 @@ const FindImageScreen = ({props}) => {
                         <ButtonContainer>
                             <Buttons.LongButton
                                 title="search"
-                                onPress={serviceAlert}
+                                onPress={() => {
+                                    if(state.clothes.id ==='bottom1'){
+                                        navigation.navigate('SearchResult');
+
+                                    }else{
+                                        Alert.alert("검색 결과","결과를 찾을 수 없습니다.");
+                                    }
+                                }}
                             />
                         </ButtonContainer>
                     </Container>

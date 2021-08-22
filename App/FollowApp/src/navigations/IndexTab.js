@@ -1,9 +1,9 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import SettingScreen from '../screens/SettingScreen';
-import ClothSearch from '../screens/ClothSearch/ClothSearch';
 import MyClosetStack from './MyClosetStack';
 import HomeStack from './HomeStack';
+import ClothSearchStack from './ClothSearchStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,7 +14,7 @@ const IndexTab = () => {
             <Tab.Screen name="MyCloset" component={MyClosetStack} />
             <Tab.Screen
                 name="FindImage"
-                component={ClothSearch.FindImageScreen}
+                component={ClothSearchStack}
             />
             <Tab.Screen name="Setting" component={SettingScreen} />
         </Tab.Navigator>
