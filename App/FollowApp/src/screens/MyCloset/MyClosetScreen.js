@@ -1,15 +1,17 @@
 import React from 'react';
 import {StyleSheet, View, Image, Text, TouchableOpacity} from 'react-native';
+import styled from 'styled-components';
 
 function MyClosetScreen({navigation}) {
     return (
         <View>
             <View style={styles.upBox} />
 
-            <Image
-                source={require('./../../../asset/img/MyCloset/profile.png')}
-                style={styles.container}
-            />
+            <ProfileContainer>
+                <ProfileImage
+                    source={require('./../../../asset/img/MyCloset/profile.png')}
+                />
+            </ProfileContainer>
 
             <Text style={styles.nameText}>주돌이</Text>
 
@@ -44,14 +46,21 @@ function MyClosetScreen({navigation}) {
     );
 }
 
+const ProfileContainer = styled.View`
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+`;
+const ProfileImage = styled.Image`
+    width: 110px;
+    height: 110px;
+    position: absolute;
+`;
+
 const styles = StyleSheet.create({
-    container: {
-        width: 110,
-        height: 110,
-        position: 'absolute',
-        marginTop: 0,
-        marginLeft: 140,
-    },
     boxButton: {
         justifyContent: 'flex-start',
         backgroundColor: 'black',
