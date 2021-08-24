@@ -1,4 +1,5 @@
 {
     "name": "FollowApp",
-    "displayName": "FollowApp"
+    "displayName": "FollowApp",
+    "icon": "./asset/icon.png"
 }
