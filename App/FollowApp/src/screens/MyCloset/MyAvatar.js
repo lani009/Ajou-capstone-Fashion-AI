@@ -2,10 +2,12 @@ import React from 'react';
 import styled from 'styled-components/native';
 import {View, Text} from 'react-native';
 import Buttons from '../../components/buttons/Button';
+import {Header} from '../../components/HomeScreen/CardViewComponents';
 
 const MyAvatarScreen = ({navigation}) => {
     return (
         <Container>
+            <Header title="Pick Avatar" />
             <ChooseAvatar onPress={() => navigation.navigate('MyAvatarPick')}>
                 <ContainerPicture>
                     <PictureBox>
@@ -24,7 +26,7 @@ const MyAvatarScreen = ({navigation}) => {
             </ChooseAvatar>
             <ButtonBox>
                 <Buttons.LongButton
-                    title="적용"
+                    title='Apply'
                     onPress={() => alert('아바타 변경 완료')}
                 />
             </ButtonBox>

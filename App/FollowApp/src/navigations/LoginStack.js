@@ -10,6 +10,7 @@ const LoginStack = () => {
             initialRouteName="Login"
             screenOptions={{
                 headerTitleAlign: 'center',
+                headerShown: false,
             }}>
             <Stack.Screen name="Login" component={LoginScreen} />
         </Stack.Navigator>

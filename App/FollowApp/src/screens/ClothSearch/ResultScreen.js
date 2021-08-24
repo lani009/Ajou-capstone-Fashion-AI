@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, Image, Linking} from 'react-native';
 import styled from 'styled-components/native';
+import {Header} from '../../components/HomeScreen/CardViewComponents';
 
 const Container = styled.SafeAreaView`
     flex: 1;
@@ -16,7 +17,7 @@ const List = styled.TouchableOpacity`
 const TextView = styled.View`
     padding: 5px;
     justify-content: center;
-    background-color: #F2F2F2;
+    background-color: #f2f2f2;
     flex: 1;
 `;
 const ImageContainer = styled.View``;
@@ -24,6 +25,7 @@ const ImageContainer = styled.View``;
 const ResultScreen = () => {
     return (
         <Container>
+            <Header title="Results" />
             <ScrollView>
                 <List
                     onPress={() =>

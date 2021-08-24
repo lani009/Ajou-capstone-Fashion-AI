@@ -15,7 +15,7 @@ export const theme = {
 
     Button: {
         color: colors.white,
-        background: colors.blue,
+        background: colors.black,
         title: colors.white,
         unfilledTitle: colors.blue,
         logout: colors.red,

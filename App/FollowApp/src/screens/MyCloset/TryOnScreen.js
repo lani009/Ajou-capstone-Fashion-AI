@@ -9,6 +9,7 @@ import {
     MySelectionConsumer,
     MySelectionProvider,
 } from '../../context/MySelectionContext';
+import {Header} from '../../components/HomeScreen/CardViewComponents';
 
 const WindowHeight = Dimensions.get('window').height / 9;
 const Container = styled.SafeAreaView`
@@ -101,6 +102,7 @@ const TryOnScreen = ({props}) => {
             <MySelectionConsumer>
                 {({state, actions}) => (
                     <Container>
+                        <Header title="Try On"/>
                         <AvatarView>
                             <Image
                                 source={selectedAvartar(state)}

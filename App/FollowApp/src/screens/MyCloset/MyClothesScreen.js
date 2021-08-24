@@ -6,6 +6,7 @@ import {MyClosetProvider} from '../../context/MyClosetContext';
 import AllClothesImageLoader from '../../components/MyClothesScreen/AllClothesContextLoader';
 import TypeContextLoader from '../../components/MyClothesScreen/TypeContextLoader';
 import ColorContextLoader from '../../components/MyClothesScreen/ColorContextLoader';
+import {Header} from '../../components/HomeScreen/CardViewComponents';
 const Container = styled.SafeAreaView`
     flex: 1;
     align-items: center;
@@ -22,6 +23,7 @@ const MyClothesScreen = () => {
     return (
         <MyClosetProvider>
             <Container>
+            <Header title="My Clothes"/>
                 <View style={{width: '80%', margin: '5%'}}>
                     <SegmentedControlTab
                         values={['All', 'Type', 'Color']}
