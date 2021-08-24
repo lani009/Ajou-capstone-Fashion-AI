@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import PressableButton from '../components/buttons/PressableButton';
 import { UserContext } from '../context/UserContext';
 import InputArea from './../components/InputArea';
-
+import {Header} from '../components/HomeScreen/CardViewComponents';
 const Container = styled.View`
     flex: 1;
     justify-content: center;
@@ -35,6 +35,7 @@ const LoginScreen = () => {
         <KeyboardAwareScrollView
             contentContainerStyle={containerStyle}
             extraScrollHeight={20}>
+                <Header title="Login"/>
             <Container>
                 <Text>Hi This is Login Page😃</Text>
                 <InputArea

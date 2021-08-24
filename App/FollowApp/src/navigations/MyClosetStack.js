@@ -7,7 +7,7 @@ const Stack = createStackNavigator();
 
 const MyClosetStack = () => {
     return (
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{headerShown:false}}>
             <Stack.Screen
                 name="MyCloset"
                 component={MyCloth.default.MyClosetScreen}

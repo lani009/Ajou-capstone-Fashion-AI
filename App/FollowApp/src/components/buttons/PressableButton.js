@@ -6,9 +6,11 @@ const Container = styled.TouchableOpacity`
     background-color: ${({theme}) => theme.Button.background};
     align-items: center;
     border-radius: 4px;
-    width: 100%;
+    width: 70%;
     padding: 10px;
+    margin-top: 30px;
     opacity: ${({disabled}) => (disabled ? 0.4 : 1)};
+
 `;
 const Text = styled.Text`
     font-size: 15px;

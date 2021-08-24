@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, Image, Text, TouchableOpacity} from 'react-native';
 import styled from 'styled-components';
+import {Header} from '../../components/HomeScreen/CardViewComponents';
 
 function MyClosetScreen({navigation}) {
     return (
@@ -17,7 +18,10 @@ function MyClosetScreen({navigation}) {
 
             <Text style={styles.emailText}>jkworldchampion@gamil.com</Text>
             <View
-                style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
+                style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-evenly',
+                }}>
                 <TouchableOpacity
                     style={styles.boxButton}
                     onPress={() => navigation.navigate('MyClothes')}>
@@ -30,7 +34,10 @@ function MyClosetScreen({navigation}) {
                 </TouchableOpacity>
             </View>
             <View
-                style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
+                style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-evenly',
+                }}>
                 <TouchableOpacity
                     style={styles.boxButton}
                     onPress={() => navigation.navigate('MyAvatar')}>
@@ -72,7 +79,7 @@ const styles = StyleSheet.create({
     },
     upBox: {
         width: '100%',
-        height: '10%',
+        height: '15%',
         backgroundColor: 'black',
     },
     boxText: {

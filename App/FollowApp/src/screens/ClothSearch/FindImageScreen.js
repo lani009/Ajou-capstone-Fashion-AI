@@ -7,6 +7,7 @@ import {
     FindImageProvider,
     FindImageConsumer,
 } from '../../context/FindImageContext';
+import {Header} from '../../components/HomeScreen/CardViewComponents';
 
 const WindowHeight = Dimensions.get('window').height / 9;
 const Container = styled.SafeAreaView`
@@ -39,6 +40,7 @@ const FindImageScreen = ({navigation}) => {
             <FindImageConsumer>
                 {({state, actions}) => (
                     <Container>
+                        <Header title="Search"/>
                         <AvatarView>
                             <Image
                                 source={state.clothes.imgPath}

@@ -3,6 +3,7 @@ import {FlatList} from 'react-native';
 import {SearchBar} from 'react-native-elements';
 import styled from 'styled-components';
 import {MyLookContext} from '../../../context/MyLookContext';
+import {Header} from '../../../components/HomeScreen/CardViewComponents';
 
 const Container = styled.View`
     flex: 1;
@@ -66,6 +67,7 @@ const MyLook = ({navigation}) => {
     };
     return (
         <Container>
+            <Header title="My Look"/>
             <SearchBar
                 placeholder="Type Here..."
                 onChangeText={setSearchVal}

@@ -7,7 +7,7 @@ const Stack = createStackNavigator();
 
 const ClothSearchStack = () => {
     return (
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{headerShown:false}}>
             <Stack.Screen name="FindImage" component={FindImageScreen} />
             <Stack.Screen name="SearchResult" component={ResultScreen} />
         </Stack.Navigator>

@@ -4,6 +4,7 @@ import ImageViewer from 'react-native-image-zoom-viewer';
 import GridImage from './GridImage';
 import Buttons from '../../components/buttons/Button';
 import GalleryContext from '../../context/GalleryContext';
+import {Header} from '../../components/HomeScreen/CardViewComponents';
 
 const MyAvatarScreenPick = ({navigation, props}) => {
     const [modalVisible, setModalVisible] = useState(false);
@@ -32,6 +33,7 @@ const MyAvatarScreenPick = ({navigation, props}) => {
 
     return (
         <Container>
+            <Header title='Gallery'/>
             <AvatarModal visible={modalVisible} transparent={true}>
                 <ImageViewerContainer>
                     <ImageViewer
@@ -42,7 +44,7 @@ const MyAvatarScreenPick = ({navigation, props}) => {
                 </ImageViewerContainer>
                 <ChooseImageButton2>
                     <Buttons.LongButton
-                        title="적용"
+                        title="Apply"
                         onPress={() => setModalVisible(false)}
                     />
                 </ChooseImageButton2>
