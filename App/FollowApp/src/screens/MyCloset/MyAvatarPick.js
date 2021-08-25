@@ -5,6 +5,11 @@ import GridImage from './GridImage';
 import Buttons from '../../components/buttons/Button';
 import GalleryContext from '../../context/GalleryContext';
 import {Header} from '../../components/HomeScreen/CardViewComponents';
+import {
+    AvatarConsumer,
+    AvatarProvider,
+} from '../../context/avatar/AvatarSelectedContext';
+import { Alert } from 'react-native';
 
 const MyAvatarScreenPick = ({navigation, props}) => {
     const [modalVisible, setModalVisible] = useState(false);
@@ -32,31 +37,45 @@ const MyAvatarScreenPick = ({navigation, props}) => {
     }
 
     return (
-        <Container>
-            <Header title='Gallery'/>
-            <AvatarModal visible={modalVisible} transparent={true}>
-                <ImageViewerContainer>
-                    <ImageViewer
-                        imageUrls={images}
-                        index={recentPicture}
-                        onChange={index => setRecentPicture(index)}
-                    />
-                </ImageViewerContainer>
-                <ChooseImageButton2>
-                    <Buttons.LongButton
-                        title="Apply"
-                        onPress={() => setModalVisible(false)}
-                    />
-                </ChooseImageButton2>
-            </AvatarModal>
-            <GridContainer>{GridImages}</GridContainer>
-            <ChooseImageButton1>
-                <Buttons.LongButton
-                    title="선택 완료"
-                    onPress={() => console.log('context 연결해야함.')}
-                />
-            </ChooseImageButton1>
-        </Container>
+        <AvatarProvider>
+            <AvatarConsumer>
+                {({state, actions}) => (
+                    <Container>
+                        <Header title="Gallery" />
+                        <AvatarModal visible={modalVisible} transparent={true}>
+                            <ImageViewerContainer>
+                                <ImageViewer
+                                    imageUrls={images}
+                                    index={recentPicture}
+                                    onChange={id => setRecentPicture(id)}
+                                />
+                            </ImageViewerContainer>
+                            <ChooseImageButton2>
+                                <Buttons.LongButton
+                                    title="Apply"
+                                    onPress={() => setModalVisible(false)}
+                                />
+                            </ChooseImageButton2>
+                        </AvatarModal>
+                        <GridContainer>{GridImages}</GridContainer>
+                        <ChooseImageButton1>
+                            <Buttons.LongButton
+                                title="선택 완료"
+                                onPress={() => {
+                                    if(state.avatar===''){
+                                        Alert.alert("선택된 사진이 없습니다.")
+                                    }else{
+                                        navigation.navigate('MyAvatar')
+                                    }
+
+
+                                }}
+                            />
+                        </ChooseImageButton1>
+                    </Container>
+                )}
+            </AvatarConsumer>
+        </AvatarProvider>
     );
 };
 

@@ -18,7 +18,7 @@ const AvatarImgContext = createContext([
     {
         url: '',
         props: {
-            source: require('./avatar/avatar1.png'),
+            source: require('../../asset/img/TryOn/Avatar/0_0.png'),
         },
         id: 0,
     },
