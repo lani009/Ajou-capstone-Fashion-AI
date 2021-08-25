@@ -1,4 +1,5 @@
 {
-  "name": "FollowApp",
-  "displayName": "FollowApp"
+    "name": "FollowApp",
+    "displayName": "LookON",
+    "icon": "./asset/icon.png"
 }

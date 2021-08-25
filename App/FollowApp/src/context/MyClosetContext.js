@@ -1,21 +1,20 @@
-import React, { useState, createContext } from 'react';
+import React, {useState, createContext} from 'react';
+import {MyClothData} from '../data/MyClothData';
 
 const MyClosetContext = createContext({
-    myClothList = new Array(),
+    myClothList: [],
+    dispatch: undefined,
 });
 
-const MyClosetProvider = ({ children }) => {
-  const [inProgress, setInProgress] = useState(false);
-  const spinner = {
-    start: () => setInProgress(true),
-    stop: () => setInProgress(false),
-  };
-  const value = { inProgress, spinner };
-  return (
-    <MyClosetContext.Provider value={value}>
-      {children}
-    </MyClosetContext.Provider>
-  );
+const MyClosetProvider = ({children}) => {
+    const [, setClothList] = useState([]);
+    const value = {myClothList: MyClothData, dispatch: setClothList};
+    return (
+        <MyClosetContext.Provider value={value}>
+            {children}
+        </MyClosetContext.Provider>
+    );
 };
+
 
 export { MyClosetContext, MyClosetProvider };
