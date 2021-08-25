@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {View, Text} from 'react-native';
+import {View, Text, Image} from 'react-native';
 import Buttons from '../../components/buttons/Button';
 import {Header} from '../../components/HomeScreen/CardViewComponents';
 
@@ -11,11 +11,15 @@ const MyAvatarScreen = ({navigation}) => {
             <ChooseAvatar onPress={() => navigation.navigate('MyAvatarPick')}>
                 <ContainerPicture>
                     <PictureBox>
-                        <Text style={{fontSize: 33}}>🖼</Text>
+                        <Image 
+                            style={{height: '30%', width:'30%'}}
+                            source={require('../../../asset/img/MyCloset/MyAvatar/1.png')}/>
                     </PictureBox>
                     <MidLine></MidLine>
                     <PictureBox>
-                        <Text style={{fontSize: 33}}>📷</Text>
+                        <Image 
+                            style={{height: '30%', width:'30%'}}
+                            source={require('../../../asset/img/MyCloset/MyAvatar/2.png')}/>
                     </PictureBox>
                 </ContainerPicture>
                 <View>
@@ -51,19 +55,20 @@ const ChooseAvatar = styled.TouchableOpacity`
 
 const ContainerPicture = styled.View`
     flex-direction: row;
-    margin: 20px;
+    align-items: center;
 `;
 
 const PictureBox = styled.View`
     flex: 1;
     justify-content: center;
     align-items: center;
+    
 `;
 
 const MidLine = styled.View`
-    margin-top: 5px;
+    align-self: center;
     border: 1px;
-    height: 45px;
+    height: 50px;
     color: #000000;
 `;
 
