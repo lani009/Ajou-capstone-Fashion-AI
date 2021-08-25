@@ -12,13 +12,13 @@ const MyAvatarScreen = ({navigation}) => {
                 <ContainerPicture>
                     <PictureBox>
                         <Image 
-                            style={{height: '20%', width:'20%'}}
+                            style={{height: '30%', width:'30%'}}
                             source={require('../../../asset/img/MyCloset/MyAvatar/1.png')}/>
                     </PictureBox>
                     <MidLine></MidLine>
                     <PictureBox>
                         <Image 
-                            style={{height: '20%', width:'20%'}}
+                            style={{height: '30%', width:'30%'}}
                             source={require('../../../asset/img/MyCloset/MyAvatar/2.png')}/>
                     </PictureBox>
                 </ContainerPicture>
