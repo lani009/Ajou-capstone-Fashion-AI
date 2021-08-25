@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {View, Text} from 'react-native';
+import {View, Text, Image} from 'react-native';
 import Buttons from '../../components/buttons/Button';
 
 const MyAvatarScreen = ({navigation}) => {
@@ -9,11 +9,15 @@ const MyAvatarScreen = ({navigation}) => {
             <ChooseAvatar onPress={() => navigation.navigate('MyAvatarPick')}>
                 <ContainerPicture>
                     <PictureBox>
-                        <Text style={{fontSize: 33}}>🖼</Text>
+                        <Image 
+                            style={{height: '30%', width:'30%'}}
+                            source={require('../../../asset/img/MyCloset/MyAvatar/gallery-880815_640.png')}/>
                     </PictureBox>
                     <MidLine></MidLine>
                     <PictureBox>
-                        <Text style={{fontSize: 33}}>📷</Text>
+                        <Image 
+                            style={{height: '30%', width:'30%'}}
+                            source={require('../../../asset/img/MyCloset/MyAvatar/photo-camera-2027073_640.png')}/>
                     </PictureBox>
                 </ContainerPicture>
                 <View>
@@ -59,9 +63,9 @@ const PictureBox = styled.View`
 `;
 
 const MidLine = styled.View`
-    margin-top: 5px;
+    margin-top: 37px;
     border: 1px;
-    height: 45px;
+    height: 50px;
     color: #000000;
 `;
 
