@@ -3,7 +3,9 @@ import React, {useState, createContext} from 'react';
 const FindImageContext = createContext({
     state: {clothes: ''},
     actions: {
-        setClothes: () => {},
+        setClothes: () => {
+            // intentional
+        },
     },
 });
 
