@@ -13,14 +13,15 @@ import {theme} from './src/theme';
 import Navigation from './src/navigations/navigation';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {UserContextProvider} from './src/context/UserContext';
+import {AvatarContextProvider} from './src/context/AvatarContext';
 
 const App = () => {
     return (
         <SafeAreaProvider>
             <ThemeProvider theme={theme}>
                 <StatusBar />
-                <UserContextProvider>
-                    <Navigation />
+                <UserContextProvider >
+                    <Navigation/>
                 </UserContextProvider>
             </ThemeProvider>
         </SafeAreaProvider>

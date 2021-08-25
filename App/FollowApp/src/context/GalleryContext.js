@@ -1,18 +1,4 @@
 import React, { createContext, useState } from 'react';
-import { UserContext } from './UserContext';
-
-const GalleryContext = createContext({
-    myAvatar: 0,
-})
-
-const GalleryProvider = ({ children }) => {
-    const [avatar, setAvatar] = useState(0);
-    const value = { avatar: { avatar }, setAvatar }
-
-    return <GalleryContext.Provider value={value}>{children}</GalleryContext.Provider>
-};
-
-const GalleryConsumer = UserContext.Consumer;
 
 const AvatarImgContext = createContext([
     {
@@ -59,8 +45,4 @@ const AvatarImgContext = createContext([
     },
 ]);
 
-
-
-// export { GalleryContext, GalleryProvider };
-
-export default { GalleryProvider, GalleryConsumer, AvatarImgContext };
+export { AvatarImgContext };

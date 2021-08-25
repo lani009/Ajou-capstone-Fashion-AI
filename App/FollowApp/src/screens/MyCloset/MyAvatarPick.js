@@ -4,13 +4,20 @@ import ImageViewer from 'react-native-image-zoom-viewer';
 import GridImage from './GridImage';
 import Buttons from '../../components/buttons/Button';
 import GalleryContext from '../../context/GalleryContext';
+<<<<<<< Updated upstream
+=======
+import {AvatarContext} from '../../context/AvatarContext';
+import {Header} from '../../components/HomeScreen/CardViewComponents';
+>>>>>>> Stashed changes
 
 const MyAvatarScreenPick = ({navigation, props}) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [recentPicture, setRecentPicture] = useState(0);
     const images = useContext(GalleryContext.AvatarImgContext);
+    const chooseAvatar = useContext(AvatarContext).dispatch;
 
     let GridImages = [];
+    
     for (let i = 0; i < images.length / 2; i++) {
         GridImages.push(
             <GridView>
@@ -29,6 +36,7 @@ const MyAvatarScreenPick = ({navigation, props}) => {
             </GridView>,
         );
     }
+
 
     return (
         <Container>
@@ -49,10 +57,12 @@ const MyAvatarScreenPick = ({navigation, props}) => {
             </AvatarModal>
             <GridContainer>{GridImages}</GridContainer>
             <ChooseImageButton1>
-                <Buttons.LongButton
-                    title="선택 완료"
-                    onPress={() => console.log('context 연결해야함.')}
-                />
+                <AvatarConsumer value={{myAvatar: recentPicture}}>
+                    <Buttons.LongButton
+                        title="선택 완료"
+                        onPress={() => chooseAvatar(recentPicture)}
+                    />
+                </AvatarConsumer>
             </ChooseImageButton1>
         </Container>
     );
