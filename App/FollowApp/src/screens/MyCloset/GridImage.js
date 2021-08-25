@@ -7,7 +7,6 @@ const GridImage = props => {
         props.setRecentPicture(props.id);
         props.setModalVisible(true);
     };
-
     return (
         <AvatarConsumer>
             {({state, actions}) => (
@@ -15,8 +14,6 @@ const GridImage = props => {
                     onPress={() => {
                         modifyState();
                         actions.setAvatar(props.source);
-                        console.log(props.source);
-                        console.log(state.avatar);
                     }}
                     style={styles.thumbnailContainer}>
                     <Image

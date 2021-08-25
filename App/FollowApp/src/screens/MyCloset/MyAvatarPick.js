@@ -9,9 +9,11 @@ import {
     AvatarConsumer,
     AvatarProvider,
 } from '../../context/avatar/AvatarSelectedContext';
-import { Alert } from 'react-native';
+import {Alert} from 'react-native';
 
-const MyAvatarScreenPick = ({navigation, props}) => {
+let countable = 0;
+
+const MyAvatarScreenPick = ({navigation, route, props}) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [recentPicture, setRecentPicture] = useState(0);
     const images = useContext(GalleryContext.AvatarImgContext);
@@ -39,7 +41,7 @@ const MyAvatarScreenPick = ({navigation, props}) => {
     return (
         <AvatarProvider>
             <AvatarConsumer>
-                {({state, actions}) => (
+                {({state}) => (
                     <Container>
                         <Header title="Gallery" />
                         <AvatarModal visible={modalVisible} transparent={true}>
@@ -53,7 +55,9 @@ const MyAvatarScreenPick = ({navigation, props}) => {
                             <ChooseImageButton2>
                                 <Buttons.LongButton
                                     title="Apply"
-                                    onPress={() => setModalVisible(false)}
+                                    onPress={() => {
+                                        setModalVisible(false);
+                                    }}
                                 />
                             </ChooseImageButton2>
                         </AvatarModal>
@@ -62,13 +66,15 @@ const MyAvatarScreenPick = ({navigation, props}) => {
                             <Buttons.LongButton
                                 title="선택 완료"
                                 onPress={() => {
-                                    if(state.avatar===''){
-                                        Alert.alert("선택된 사진이 없습니다.")
-                                    }else{
-                                        navigation.navigate('MyAvatar')
+                                    if (state.avatar === '') {
+                                        Alert.alert('선택된 사진이 없습니다.');
+                                    } else {
+                                        navigation.navigate('MyAvatar');
+                                        route.params.dispatchAvatar(state.avatar);
+                                        route.params.myAvatarObject(
+                                            countable++,
+                                        );
                                     }
-
-
                                 }}
                             />
                         </ChooseImageButton1>

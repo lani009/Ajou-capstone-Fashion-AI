@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components/native';
 import {View, Text, Image} from 'react-native';
 import Buttons from '../../components/buttons/Button';
@@ -8,7 +8,9 @@ import {
     AvatarProvider,
 } from '../../context/avatar/AvatarSelectedContext';
 
-const MyAvatarScreen = ({navigation}) => {
+const MyAvatarScreen = function ({navigation}) {
+    console.log('this is my avatar');
+    const [, updateThis] = useState();
     const GalleryIcon = () => {
         return (
             <ContainerPicture>
@@ -34,36 +36,40 @@ const MyAvatarScreen = ({navigation}) => {
             </ContainerPicture>
         );
     };
+
+    const SelectedImage = styled.Image`
+        flex: 1;
+        resize-mode: contain;
+    `;
     return (
         <AvatarProvider>
             <AvatarConsumer>
-                {({state, actions}) => (
-                    <Container>
-                        <Header title="Pick Avatar" />
-                        <ChooseAvatar
-                            onPress={() => navigation.navigate('MyAvatarPick')}>
-                            
+                {({state, actions}) => {
+                    return (
+                        <Container>
+                            <Header title="Pick Avatar" />
+                            <ChooseAvatar
+                                onPress={() =>
+                                    navigation.navigate('MyAvatarPick', {
+                                        myAvatarObject: updateThis,
+                                        dispatchAvatar: actions.setAvatar,
+                                    })
+                                }>
                                 {state.avatar === '' ? (
                                     <GalleryIcon />
                                 ) : (
-                                    <Image source={state.avatar} />
+                                    <SelectedImage source={state.avatar} />
                                 )}
-                            
-                            <View>
-                                <Text style={{fontSize: 15, marginTop: 30}}>
-                                    Find your pic which you want to try clothes
-                                    on.
-                                </Text>
-                            </View>
-                        </ChooseAvatar>
-                        <ButtonBox>
-                            <Buttons.LongButton
-                                title="Apply"
-                                onPress={() => alert('아바타 변경 완료')}
-                            />
-                        </ButtonBox>
-                    </Container>
-                )}
+                            </ChooseAvatar>
+                            <ButtonBox>
+                                <Buttons.LongButton
+                                    title="Apply"
+                                    onPress={() => alert('아바타 변경 완료')}
+                                />
+                            </ButtonBox>
+                        </Container>
+                    );
+                }}
             </AvatarConsumer>
         </AvatarProvider>
     );

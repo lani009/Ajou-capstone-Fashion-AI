@@ -10,10 +10,6 @@ const ImgLoader = props => {
     const bottomDataList = clothesList.myClothList.filter(
         item => item.type === 'bottom',
     );
-    // const init = item => {
-    //     setClothData(item);
-    //     console.log(clothData);
-    // };
     return (
         <View style={{alignContent: 'center'}} scrollEnabled={true}>
             <View
@@ -43,20 +39,7 @@ const ImgLoader = props => {
                 </View>
                 <FlatList
                     data={topDataList}
-                    renderItem={({item}) => (
-                        <View>
-                            <TouchableOpacity style={{flex: 1, margin: 15}}>
-                                <Image
-                                    source={item.imgPath}
-                                    style={{
-                                        width: 70,
-                                        height: 70,
-                                        borderRadius: 20,
-                                    }}
-                                />
-                            </TouchableOpacity>
-                        </View>
-                    )}
+                    renderItem={renderItem}
                     keyExtractor={item => String(item.id)}
                     numColumns={3}
                     horizontal={false}
@@ -90,20 +73,7 @@ const ImgLoader = props => {
                 </View>
                 <FlatList
                     data={bottomDataList}
-                    renderItem={({item}) => (
-                        <View>
-                            <TouchableOpacity style={{flex: 1, margin: 15}}>
-                                <Image
-                                    source={item.imgPath}
-                                    style={{
-                                        width: 70,
-                                        height: 70,
-                                        borderRadius: 20,
-                                    }}
-                                />
-                            </TouchableOpacity>
-                        </View>
-                    )}
+                    renderItem={renderItem}
                     keyExtractor={item => String(item.id)}
                     numColumns={3}
                     horizontal={false}
@@ -114,4 +84,18 @@ const ImgLoader = props => {
     );
 };
 
+const renderItem = ({item}) => (
+    <View>
+        <TouchableOpacity style={{flex: 1, margin: 15}}>
+            <Image
+                source={item.imgPath}
+                style={{
+                    width: 70,
+                    height: 70,
+                    borderRadius: 20,
+                }}
+            />
+        </TouchableOpacity>
+    </View>
+);
 export default ImgLoader;
