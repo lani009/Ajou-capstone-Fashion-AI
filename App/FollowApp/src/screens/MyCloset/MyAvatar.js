@@ -12,14 +12,14 @@ const MyAvatarScreen = ({navigation}) => {
                 <ContainerPicture>
                     <PictureBox>
                         <Image 
-                            style={{height: '30%', width:'30%'}}
-                            source={require('../../../asset/img/MyCloset/MyAvatar/gallery-880815_640.png')}/>
+                            style={{height: '20%', width:'20%'}}
+                            source={require('../../../asset/img/MyCloset/MyAvatar/1.png')}/>
                     </PictureBox>
                     <MidLine></MidLine>
                     <PictureBox>
                         <Image 
-                            style={{height: '30%', width:'30%'}}
-                            source={require('../../../asset/img/MyCloset/MyAvatar/photo-camera-2027073_640.png')}/>
+                            style={{height: '20%', width:'20%'}}
+                            source={require('../../../asset/img/MyCloset/MyAvatar/2.png')}/>
                     </PictureBox>
                 </ContainerPicture>
                 <View>
@@ -55,17 +55,18 @@ const ChooseAvatar = styled.TouchableOpacity`
 
 const ContainerPicture = styled.View`
     flex-direction: row;
-    margin: 20px;
+    align-items: center;
 `;
 
 const PictureBox = styled.View`
     flex: 1;
     justify-content: center;
     align-items: center;
+    
 `;
 
 const MidLine = styled.View`
-    margin-top: 37px;
+    align-self: center;
     border: 1px;
     height: 50px;
     color: #000000;

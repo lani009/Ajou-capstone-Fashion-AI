@@ -19,12 +19,16 @@ const ImgLoader = props => {
                             {({actions}) => (
                                 <TouchableOpacity
                                     onPress={() => actions.setClothes(item)}
-                                    style={{flex: 1, margin: 15}}>
+                                    style={{
+                                        flex: 1,
+                                        alignItems: 'center',
+                                        margin: 15,
+                                    }}>
                                     <Image
                                         source={item.imgPath}
                                         style={{
-                                            width: 100,
-                                            height: 100,
+                                            width: 90,
+                                            height: 90,
                                             borderRadius: 20,
                                         }}
                                     />
